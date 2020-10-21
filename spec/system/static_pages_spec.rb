@@ -10,10 +10,6 @@ RSpec.describe "StaticPages", type: :system do
       it "String exist" do
         expect(page).to have_content 'Airbnb'
       end
-
-      it "Title exist" do
-        expect(page).to have_title full_title
-      end
     end
   end
 end
