@@ -4,3 +4,24 @@
 # Examples:
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require "open-uri"
+
+puts "Cleaning data..."
+
+User.destroy_all
+
+puts "User data destroyed!"
+
+puts 'Creating 1 default user...'
+
+default_user = User.new(
+  first_name: "firstname",
+  last_name: "lastname",
+  user_name: "user1",
+  email: "user@user.com",
+  password: "password"
+)
+
+default_user.save!
+
+puts 'User created!'
