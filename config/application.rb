@@ -15,10 +15,10 @@ module Airbnb
       g.assets false          # for CSS, JavaScript files
       g.test_framework false  # for test files
       g.test_framework :rspec,
-        controller_specs: false,
-        view_specs: false,
-        helper_specs: false,
-        routing_specs: false
+                       controller_specs: false,
+                       view_specs: false,
+                       helper_specs: false,
+                       routing_specs: false
     end
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

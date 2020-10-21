@@ -1,10 +1,10 @@
 module ApplicationHelper
-  def full_title(page_title = '')  # full_title method
+  def full_title(page_title = '')
     base_title = 'Airbnb'
     if page_title.blank?
-      base_title  # 'Airbnb'
+      base_title
     else
-      "#{page_title} - #{base_title}" # ex) BookingPage - Airbnb
+      "#{page_title} - #{base_title}"
     end
   end
 end
