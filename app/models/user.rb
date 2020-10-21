@@ -6,7 +6,6 @@ class User < ApplicationRecord
   validates :first_name, presence: true, uniqueness: { scope: :last_name }
   validates :user_name, uniqueness: true
   has_many :accommodations, dependent: :destroy
-  has_many :bookings
 
   def forget
     update_attribute(:remember_digest, nil)
