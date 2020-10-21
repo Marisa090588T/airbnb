@@ -62,4 +62,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'simple_form'
-gem 'faker' 
+gem 'faker'
+gem 'jquery-rails'
