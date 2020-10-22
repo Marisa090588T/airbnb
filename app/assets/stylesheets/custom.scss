@@ -105,3 +105,25 @@ input {
     color: $state-danger-text;
   }
 }
+
+// card
+.card-items-index {
+  margin: 20px 20px;
+  border: black 1px solid;
+
+  .card-description {
+    padding: 16px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.card-body {
+  padding: 0;
+
+  h4 {
+    font-weight: bold;
+    margin: 0;
+  }
+}

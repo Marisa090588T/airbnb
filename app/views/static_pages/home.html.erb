@@ -1,3 +1,7 @@
 <center>
-  <h1>Welcome to Airbnb!</h1>
+  <% if user_signed_in? %>
+    <h1>Welcome to Airbnb!</h1>
+  <% else %>
+    <h1>See you Airbnb!</h1>
+  <% end %>
 </center>
