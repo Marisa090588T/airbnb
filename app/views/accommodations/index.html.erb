@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <% @accommodations.each do |accommodation| %>
+     <div class="col-md-4 col-12 cards-index">
+        <%= link_to accommodation_path(accommodation) do %>
+          <div class="card card-items-index">
+            <div class="card-description">
+              <!-- add image here? -->
+              <div class="card-body">
+                <h3 class="card-title"><%= accommodation.name %></h3>
+                <p class="card-text"><%= accommodation.description %></p>
+                <p class="card-text"><%= accommodation.location %></p>
+                <p class="card-text"><%= accommodation.property_type %></p>
+              </div>
+
+              <div>
+                <h3 class="cardpricing"></h3>$<%= number_with_delimiter(accommodation.price, :delimiter => ',') %></h3>
+              </div>
+
+              </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
