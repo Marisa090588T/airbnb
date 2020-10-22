@@ -35,6 +35,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rubocop-airbnb'
   gem "factory_bot_rails", "~> 4.10.0"
+  gem 'pry-rails'
+  gem 'faker'
 end
 
 group :development do
@@ -62,5 +64,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'simple_form'
-gem 'faker'
 gem 'jquery-rails'

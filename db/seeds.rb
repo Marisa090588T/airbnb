@@ -12,6 +12,10 @@ User.destroy_all
 
 puts "User data destroyed!"
 
+Accommodation.destroy_all
+
+puts "Accommodation data destroyed!"
+
 puts 'Creating 1 default user...'
 
 default_user = User.new(
@@ -25,3 +29,17 @@ default_user = User.new(
 default_user.save!
 
 puts 'User created!'
+
+puts 'Creating 10 default accommodations ...'
+
+12.times do |n|
+  Accommodation.create!(name: "accommodation#{n+1}",
+               description: "this is description",
+               location: "location 12345",
+               available: true,
+               property_type: "family type",
+               price: rand(100),
+               user_id: 1)
+end
+
+puts 'Accommodations created!'
