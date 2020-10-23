@@ -37,6 +37,7 @@ group :development, :test do
   gem "factory_bot_rails", "~> 4.10.0"
   gem 'pry-rails'
   gem 'faker'
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -65,3 +66,4 @@ gem 'devise'
 gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'jquery-rails'
+gem 'cloudinary', '~> 1.16.0'

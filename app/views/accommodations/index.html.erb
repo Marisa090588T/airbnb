@@ -8,9 +8,14 @@
               <!-- add image here? -->
               <div class="card-body">
                 <h3 class="card-title"><%= accommodation.name %></h3>
-                <p class="card-text"><%= accommodation.description %></p>
-                <p class="card-text"><%= accommodation.location %></p>
-                <p class="card-text"><%= accommodation.property_type %></p>
+                <p class="card-text">Description: <%= accommodation.description %></p>
+                <p class="card-text">Location: <%= accommodation.location %></p>
+                <p class="card-text">Type: <%= accommodation.property_type %></p>
+                <p class="card-text">Available: <%= accommodation.available %></p>
+                <%= cl_image_tag accommodation.photo.key, height: 150, width: 200, crop: :fill %>
+                <p>Plice: $<%= accommodation.price %>/day</p>
+              <div>
+              <br>
                 <%= link_to 'Book', new_accommodation_booking_path(accommodation), class: 'btn btn-primary' %>
                 <% if current_user == accommodation.user %>
                   <%= link_to 'edit', edit_accommodation_path(accommodation) %> | 
@@ -18,9 +23,8 @@
                 <% else %>
                   book
                 <% end %>
-              </div>
-              <div>
-                <h3 class="cardpricing">$<%= number_with_delimiter(accommodation.price, :delimiter => ',') %></h3>
+                </div>
+
               </div>
             </div>
           </div>

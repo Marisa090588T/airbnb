@@ -30,16 +30,45 @@ default_user.save!
 
 puts 'User created!'
 
-puts 'Creating 10 default accommodations ...'
+puts 'Creating 3 default accommodations ...'
 
-12.times do |n|
-  Accommodation.create!(name: "accommodation#{n + 1}",
-                        description: "this is description",
-                        location: "location 12345",
-                        available: true,
-                        property_type: "family type",
-                        price: rand(100),
-                        user_id: 1)
-end
+accommodation1 = Accommodation.create!(
+  name: "accommodation_one",
+  description: "this is description",
+  location: "location 11111",
+  available: true,
+  property_type: "family type",
+  price: rand(100),
+  user_id: 1)
+
+file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603436961/p2x4jmgnsuhsx8doqt6f.jpg')
+accommodation1.photo.attach(io: file, filename: 'nes.jpg', content_type: 'image/jpg')
+accommodation1.save!
+
+accommodation2 = Accommodation.create!(
+  name: "accommodation_two",
+  description: "this is description",
+  location: "location 22222",
+  available: true,
+  property_type: "single type",
+  price: rand(100),
+  user_id: 1)
+
+file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603437590/seiva76ulf4wupxvyjmh.jpg')
+accommodation2.photo.attach(io: file, filename: 'nes.jpg', content_type: 'image/jpg')
+accommodation2.save!
+
+accommodation3 = Accommodation.create!(
+  name: "accommodation_three",
+  description: "this is description",
+  location: "location 33333",
+  available: true,
+  property_type: "friend type",
+  price: rand(100),
+  user_id: 1)
+
+file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603437650/zurgmnwiczuqqyc4oq7g.jpg')
+accommodation3.photo.attach(io: file, filename: 'nes.jpg', content_type: 'image/jpg')
+accommodation3.save!
 
 puts 'Accommodations created!'

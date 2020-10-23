@@ -8,7 +8,7 @@ FactoryBot.define do
     property_type "MyString"
     user nil
     association :user
-    created_at { Time.current }  
+    created_at { Time.current }
   end
 
   trait :yesterday do
