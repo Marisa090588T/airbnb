@@ -1,14 +1,19 @@
 <div class="container">
   <div class="row">  
-    <div class="col-md-6 col-12 cards-index">
+    <div class="col-md-8 col-12 cards-index">
       <div class="card card-items-index">
         <div class="card-description">
           <!-- add image here? -->
           <div class="card-body">
             <h3 class="card-title"><%= @accommodation.name %></h3>
-            <p class="card-text"><%= @accommodation.description %></p>
-            <p class="card-text"><%= @accommodation.location %></p>
-            <p class="card-text"><%= @accommodation.property_type %></p>
+            <p class="card-text">Description: <%= @accommodation.description %></p>
+            <p class="card-text">Location: <%= @accommodation.location %></p>
+            <p class="card-text">Type: <%= @accommodation.property_type %></p>
+            <p class="card-text">Available: <%= @accommodation.available %></p>
+            <%= cl_image_tag @accommodation.photo.key, height: 400, width: 600, crop: :fill %>
+            <h3>$<%= @accommodation.price %>/day</h3>
+
+            <%= link_to 'Book', new_accommodation_booking_path(@accommodation), class: 'btn btn-primary' %>
             <% if current_user == @accommodation.user %>
               <%= link_to 'edit', edit_accommodation_path(@accommodation) %> | 
               <%= link_to "delete", accommodation_path(@accommodation), method: :delete, data: { confirm: "Are you sure?" } %>
@@ -16,9 +21,6 @@
               book<%# <%= link_to " book ", new_accommodation_booking_path(@accommodation), class: "btn btn-primary"%>
             <% end %>  
           </div>      
-          <div>
-            <h3 class="cardpricing">$<%= number_with_delimiter(@accommodation.price, :delimiter => ',') %>/day</h3>
-          </div>
         </div>
       </div>
     </div>
