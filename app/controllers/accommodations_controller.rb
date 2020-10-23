@@ -9,7 +9,7 @@ class AccommodationsController < ApplicationController
   end
 
   def search
-    @search_word = params[:q][:name_cont] if params[:q]
+    @search_word = params[:q][:location_cont] if params[:q]
     @q = Accommodation.search(search_params)
     @accommodation = @q.result(distinct: true)
   end

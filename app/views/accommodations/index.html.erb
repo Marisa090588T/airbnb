@@ -1,7 +1,7 @@
 <% provide(:title, 'Accommodations') %>
   <div class="container">
     <% if @search_word.present? %>
-      <h2>”Searched by '<%= @search_word %>'”： <%= @accommodations.count %></h2>
+      <h3>Searched by "<%= @search_word %>"： <%= @accommodations.count %></h3>
     <% else %>
       <h3>Accommodations</h3>
     <% end %>
