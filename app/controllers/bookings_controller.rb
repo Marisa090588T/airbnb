@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
-  
+
   def index
     @bookings = Booking.all
   end
@@ -45,7 +45,7 @@ class BookingsController < ApplicationController
 
   def calculated_price
    (@accommodation.price * (@booking.end_date - @booking.start_date).to_i)
-  end 
+  end
 
   def destroy
     @booking.destroy
