@@ -11,13 +11,18 @@
                 <p class="card-text"><%= accommodation.description %></p>
                 <p class="card-text"><%= accommodation.location %></p>
                 <p class="card-text"><%= accommodation.property_type %></p>
+                <%= link_to 'Book', new_accommodation_booking_path(accommodation), class: 'btn btn-primary' %>
+                <% if current_user == accommodation.user %>
+                  <%= link_to 'edit', edit_accommodation_path(accommodation) %> | 
+                  <%= link_to "delete", accommodation_path(accommodation), method: :delete, data: { confirm: "Are you sure?" } %>
+                <% else %>
+                  book
+                <% end %>
               </div>
-
               <div>
                 <h3 class="cardpricing">$<%= number_with_delimiter(accommodation.price, :delimiter => ',') %></h3>
               </div>
-
-              </div>
+            </div>
           </div>
         <% end %>
       </div>
