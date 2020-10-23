@@ -47,6 +47,7 @@ class BookingsController < ApplicationController
    (@accommodation.price * (@booking.end_date - @booking.start_date).to_i)
   end
 
+
   def destroy
     @booking.destroy
     redirect_to dashboards_path, notice: 'Booking was successfully deleted.'
