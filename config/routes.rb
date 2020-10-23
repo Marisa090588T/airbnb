@@ -10,5 +10,5 @@ Rails.application.routes.draw do
     resources :bookings
   end
 
-  resources :bookings
+  # resources :bookings
 end
