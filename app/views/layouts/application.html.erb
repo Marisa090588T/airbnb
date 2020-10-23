@@ -6,7 +6,7 @@
     <%= render 'layouts/shim' %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   
@@ -16,6 +16,7 @@
       <% flash.each do |message_type, message| %>
         <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
       <% end %>
+      <%= render 'layouts/search' if user_signed_in? %> 
       <%= yield %>
     </div>
     <%= render 'layouts/footer' %>
