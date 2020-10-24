@@ -19,7 +19,11 @@
                 <p class="card-text">Location: <%= accommodation.location %></p>
                 <p class="card-text">Type: <%= accommodation.property_type %></p>
                 <p class="card-text">Available: <%= accommodation.available %></p>
-                <%= cl_image_tag accommodation.photo.key, height: 150, width: 200, crop: :fill %>
+                <% if accommodation.photo.attached? %>
+                  <%= cl_image_tag accommodation.photo.key, height: 150, width: 200, crop: :fill %>
+                <% else %>
+                  <%= cl_image_tag src="https://res.cloudinary.com/dq6gibxhn/image/upload/v1603513918/htzhjlk7bxxqzvdylouw.png", height: 150, width: 200, crop: :fill %>ex
+                <% end  %>
                 <p>Plice: $<%= accommodation.price %>/day</p>
               <div>
               <br>
@@ -38,10 +42,10 @@
       </div>
     <% end %>
   </div>
+  <%# <div id="map"
+  style="width: 100%; height: px;"
+  data-markers="<%= @markers.to_json %>
+  <%# data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY']
+</div>  %>
 </div>
 
-<div id="map"
-  style="width: 100%; height: 600px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
