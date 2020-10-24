@@ -1,4 +1,5 @@
 class AccommodationsController < ApplicationController
+  before_action :search
   def index
     @accommodations = Accommodation.all
     @markers = @accommodations.geocoded.map do |accommodation|
@@ -9,6 +10,17 @@ class AccommodationsController < ApplicationController
         image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
       }  
     end
+
+    if user_signed_in?
+      @q = Accommodation.ransack(params[:q])
+      @accommodations = @q.result(distinct: true)
+    end
+  end
+
+  def search
+    @search_word = params[:q][:location_cont] if params[:q]
+    @q = Accommodation.search(search_params)
+    @accommodation = @q.result(distinct: true)
   end
 
   def show
@@ -56,5 +68,8 @@ class AccommodationsController < ApplicationController
 
   def accommodation_params
     params.require(:accommodation).permit(:name, :description, :price, :location, :available, :property_type, :photo)
+  end
+
+  def search_params
   end
 end

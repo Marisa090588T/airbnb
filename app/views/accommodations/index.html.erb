@@ -1,4 +1,11 @@
-<div class="container">
+<% provide(:title, 'Accommodations') %>
+  <div class="container">
+    <% if @search_word.present? %>
+      <h3>Searched by "<%= @search_word %>"： <%= @accommodations.count %></h3>
+    <% else %>
+      <h3>Accommodations</h3>
+    <% end %>
+
   <div class="row">
     <% @accommodations.each do |accommodation| %>
      <div class="col-md-4 col-12 cards-index">
