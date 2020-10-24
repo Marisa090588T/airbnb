@@ -1,103 +1,70 @@
-<div class="dash-container">
-  <h1>Dashboard</h1>
-    <div class="bookings-container">
-      <h2>Booking List</h2>
-        <div class="card">
-          <% @bookings.each do |booking|
-
-                  <% if booking.permit.photo.attached? %>
-                    <%= cl_image_tag booking.permit.photo.key, height: 300, width: 400, crop: :fill %>
-                  <% else %>
-                    <img class = "default-img-full" src="https://image.shutterstock.com/image-vector/picture-vector-icon-no-image-260nw-1350441335.jpg", height: 300, width: 300, crop: :fill>
-                  <% end  %>
-
-
-                  <table>
-                    <tbody>
-                      <tr><th>Permit:</th> <td><%= booking.permit.name %></td></tr>
-                      <tr><th>Description:</th> <td> <%= booking.permit.description %></td></tr>
-                      <tr><th>Total Price:</th> <td> $<%= booking.total_price %></td></tr>
-                      <tr><th>Start Date:</th> <td> <%= booking.start_date %></td></tr>
-                      <tr><th>End Date:</th> <td> <%= booking.end_date %></td></tr>
-                      <tr><th>Booking Status:</th> <td> <%= booking.status %></td></tr>
-                      </tbody>
-                    </table>
-                    <div id="booking-actions">
-                      <%= link_to 'Show', booking %> |
-                      <% if booking.user == current_user %>
-                        <%= link_to 'Edit', edit_booking_path(booking) %>
-                      <% end %> |
-                      <% if booking.user == current_user %>
-                        <%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %>
-                      <% end %>
+<% provide(:title, 'Accommodations') %>
+  <div class="container">
+    <h3>My accommodations</h3>
+      <div class="row">
+        <% @accommodations.each do |accommodation| %>
+          <div class="col-md-4 col-12 cards-index">
+            <%= link_to accommodation_path(accommodation) do %>
+              <div class="card card-items-index">
+                <div class="card-description">
+                  <div class="card-body">
+                    <h3 class="card-title"><%= accommodation.name %></h3>
+                    <p class="card-text">Description: <%= accommodation.description %></p>
+                    <p class="card-text">Location: <%= accommodation.location %></p>
+                    <p class="card-text">Type: <%= accommodation.property_type %></p>
+                    <p class="card-text">Available: <%= accommodation.available %></p>
+                    <% if accommodation.photo.attached? %>
+                      <%= cl_image_tag accommodation.photo.key, height: 150, width: 200, crop: :fill %>
+                    <% else %>
+                      <%= cl_image_tag src="https://res.cloudinary.com/dq6gibxhn/image/upload/v1603513918/htzhjlk7bxxqzvdylouw.png", height: 150, width: 200, crop: :fill %>
+                    <% end  %>
+                      <p>Plice: $<%= accommodation.price %>/day</p>
+                    <div>
+                      <%= link_to 'edit', edit_accommodation_path(accommodation) %> | 
+                      <%= link_to "delete", accommodation_path(accommodation), method: :delete, data: { confirm: "Are you sure?" } %>
                     </div>
-
-
-          <% end %>
-        </div>
-    </div>
-
-    <div class="requests-container">
-      <h2>My Requests</h2>
-      <div class="card">
-        <% @requests.each do |booking| %>
-
-
-              <% if booking.permit.photo.attached? %>
-                <%= cl_image_tag booking.permit.photo.key, height: 300, width: 400, crop: :fill %>
-              <% else %>
-                <img class = "default-img-full" src="https://image.shutterstock.com/image-vector/picture-vector-icon-no-image-260nw-1350441335.jpg", height: 300, width: 300, crop: :fill>
-              <% end  %>
-
-
-                <table>
-                  <tbody>
-                      <tr><th>Permit:</th> <td><%= booking.permit.name %></td></tr>
-                      <tr><th>Description:</th> <td> <%= booking.permit.description %></td></tr>
-                      <tr><th>Total Price:</th> <td> $<%= booking.total_price %></td></tr>
-                      <tr><th>Start Date:</th> <td> <%= booking.start_date %></td></tr>
-                      <tr><th>End Date:</th> <td> <%= booking.end_date %></td></tr>
-                      <tr><th>Booking Status:</th> <td> <%= booking.status %></td></tr>
-                    </body>
-                </table>
-
-                <div id="respond-request">
-                  <%= link_to 'Accept', booking_path(booking, booking: {status: "Booked"}), method: :patch, data: { confirm: 'Are you sure?' } %> |
-                  <% if booking.status != "Declined"%>
-                    <%= link_to 'Decline', booking_path(booking, booking: {status: "Declined"}), method: :patch, data: { confirm: 'Are you sure?' } %>
-                  <% end %>
+                  </div>
                 </div>
-
-
-
-        <% end %>
-
-
-      </div>
- </div>
-    </div>
-  </div>
-
-
-<% @accommodations.each do |accommodation| %>
-     <div class="col-md-4 col-12 cards-index">
-        <%= link_to accommodation_path(accommodation) do %>
-          <div class="card card-items-index">
-            <div class="card-description">
-              <!-- add image here? -->
-              <div class="card-body">
-                <h3 class="card-title"><%= accommodation.name %></h3>
-                <p class="card-text"><%= accommodation.description %></p>
-                <p class="card-text"><%= accommodation.location %></p>
-                <p class="card-text"><%= accommodation.property_type %></p>
               </div>
-
-              <div>
-                <h3 class="cardpricing"></h3>$<%= number_with_delimiter(accommodation.price, :delimiter => ',') %></h3>
-              </div>
-
-              </div>
+            <% end %>
           </div>
         <% end %>
       </div>
-    <% end %> %>
+
+      <h3>My Requests</h3>
+      <div class="row">
+        <% @requests.each do |booking| %>
+          <div class="col-md-4 col-12 cards-index">
+            <%= link_to accommodation_booking_path(@accommodation, booking) do %>
+              <div class="card card-items-index">
+                <div class="card-description">
+                  <div class="card-body">
+                    <h3 class="card-title"><%= booking.accommodation.name %></h3>
+                    <p class="card-text">Description: <%= booking.accommodation.description %></p>
+                    <p class="card-text">Location: <%= booking.accommodation.location %></p>
+                    <p class="card-text">Type: <%= booking.accommodation.property_type %></p>
+                    <p class="card-text">Available: <%= booking.accommodation.available %></p>
+                    <% if booking.accommodation.photo.attached? %>
+                      <%= cl_image_tag booking.accommodation.photo.key, height: 150, width: 200, crop: :fill %>
+                    <% else %>
+                      <%= cl_image_tag src="https://res.cloudinary.com/dq6gibxhn/image/upload/v1603513918/htzhjlk7bxxqzvdylouw.png", height: 150, width: 200, crop: :fill %>
+                    <% end  %>
+                      <p>Plice: $<%= booking.accommodation.price %>/day</p>
+                    <div>
+
+                  <div>
+                    <%= link_to 'Accept', accommodation_booking_path(@accommodation, booking, booking: {status: "Booked"}), method: :patch, data: { confirm: 'Are you sure?' } %> |
+                    <% if booking.status != "Declined"%>
+                      <%= link_to 'Decline', accommodation_booking_path(@accommodation, booking, booking: {status: "Declined"}), method: :patch, data: { confirm: 'Are you sure?' } %>
+                    <% end %>
+                  </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>

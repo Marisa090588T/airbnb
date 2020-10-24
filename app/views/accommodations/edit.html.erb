@@ -9,7 +9,7 @@
         <%= f.input :description %>
         <%= f.input :price %>
         <%= f.input :location %>
-        <%= f.input :property_type %>
+        <%= f.input :property_type, collection: Accommodation::TYPES %>
         <%= f.input :photo, as: :file %>
         <%# <%= f.input :perks, as: :check_boxes, collection: property_type::PERKS, input_html: { multiple: true }, include_hidden: false %>
         <%# <%= f.input :photo, as: :file %>
