@@ -6,6 +6,7 @@ class BookingsController < ApplicationController
   end
 
   def show
+    @accommodation = Accommodation.find(params[:accommodation_id])
   end
 
   def new
@@ -35,10 +36,13 @@ class BookingsController < ApplicationController
   end
 
   def update
-    # @accommodation = Accommodation.find(params[:accommodation_id])
-    # @booking.accommodation = @accommodation
-    # @booking.total_price = calculated_price
+    @accommodation = Accommodation.find(params[:accommodation_id])
+    @booking.accommodation = @accommodation
+
     if @booking.update!(booking_params)
+      @booking = Booking.find(params[:id])
+      @booking.total_price = calculated_price
+      @booking.save
       redirect_to accommodation_booking_path, notice: 'Booking was successfully updated.'
     else
       render :edit
