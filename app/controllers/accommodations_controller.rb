@@ -6,8 +6,8 @@ class AccommodationsController < ApplicationController
       {
         lat: accommodation.latitude,
         lng: accommodation.longitude,
-        infoWindow: render_to_string(partial: "infowindow", locals: { flat: flat }),
-        image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
+        # infoWindow: render_to_string(partial: "infowindow", locals: { accommodation: accommodation }),
+        # image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
       }  
     end
 
