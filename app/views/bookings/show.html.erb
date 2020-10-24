@@ -5,13 +5,24 @@
       <div class="card card-items-index">
         <div class="card-description">
           <div class="card">
+            <h3 class="card-title"><%= @accommodation.name %></h3>
+            <p class="card-text">Description: <%= @accommodation.description %></p>
+            <p class="card-text">Location: <%= @accommodation.location %></p>
+            <p class="card-text">Type: <%= @accommodation.property_type %></p>
+            <p class="card-text">Available: <%= @accommodation.available %></p>
             <p class="card-text"><strong>Start Date:</strong><%= @booking.start_date %></p>
             <p class="card-text"><strong>End Date:</strong><%= @booking.end_date %></p>
             <p class="card-text"><strong>Total Price:</strong><%= @booking.total_price %></p>
             <p class="card-text"><strong>Status:</strong><%= @booking.status %></p>
+            <% if @accommodation.photo.attached? %>
+              <%= cl_image_tag @accommodation.photo.key, height: 150, width: 200, crop: :fill %>
+            <% else %>
+              <%= cl_image_tag src="https://res.cloudinary.com/dq6gibxhn/image/upload/v1603513918/htzhjlk7bxxqzvdylouw.png", height: 150, width: 200, crop: :fill %>
+            <% end  %>
+            <br>
             <% if current_user == @booking.user %>
-              | <%= link_to 'edit', edit_accommodation_booking_path %> | 
-              <%= link_to "delete", accommodation_booking_path(@accommodation, @booking), method: :delete, data: { confirm: "Are you sure?" } %> |
+              <%= link_to 'edit', edit_accommodation_booking_path %> |
+              <%= link_to "delete", accommodation_booking_path(@accommodation, @booking), method: :delete, data: { confirm: "Are you sure?" } %>
             <% else %>
               <%= link_to 'Back', dashboards_path %>
             <% end %>  
