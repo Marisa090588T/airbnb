@@ -14,14 +14,17 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @accommodation = Accommodation.find(params[:accommodation_id])
     @booking = Booking.new(booking_params)
+    @accommodation = Accommodation.find(params[:accommodation_id])
     @booking.accommodation = @accommodation
     @booking.user = current_user
     @booking.total_price = calculated_price
     @booking.status = "Awaiting"
 
     if @booking.save
+      @accommodation = Accommodation.find(params[:accommodation_id])
+      @accommodation.available = false
+      @accommodation.save
       redirect_to accommodation_booking_path(@accommodation, @booking), notice: 'Booking request was created.'
     else
       render :new
