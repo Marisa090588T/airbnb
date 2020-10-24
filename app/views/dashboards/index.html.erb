@@ -20,8 +20,8 @@
                     <% end  %>
                       <p>Plice: $<%= accommodation.price %>/day</p>
                     <div>
-                      <%= link_to 'edit', edit_accommodation_path(accommodation) %> | 
-                      <%= link_to "delete", accommodation_path(accommodation), method: :delete, data: { confirm: "Are you sure?" } %>
+                      <%= link_to 'edit', edit_accommodation_path(accommodation), class: 'btn btn-light' %> | 
+                      <%= link_to "delete", accommodation_path(accommodation), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-light' %>
                     </div>
                   </div>
                 </div>
@@ -31,7 +31,7 @@
         <% end %>
       </div>
 
-      <h3>My Requests</h3>
+      <h3>My Waiting list</h3>
       <div class="row">
         <% @requests.each do |booking| %>
           <div class="col-md-4 col-12 cards-index">

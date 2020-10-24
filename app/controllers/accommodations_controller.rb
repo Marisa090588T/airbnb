@@ -2,14 +2,15 @@ class AccommodationsController < ApplicationController
   before_action :search
   def index
     @accommodations = Accommodation.all
+
     # @markers = @accommodations.geocoded.map do |accommodation|
     #   {
     #     lat: accommodation.latitude,
     #     lng: accommodation.longitude,
         # infoWindow: render_to_string(partial: "infowindow", locals: { accommodation: accommodation }),
         # image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
-      }  
-    end
+      # }  
+    # end
 
     if user_signed_in?
       @q = Accommodation.ransack(params[:q])
@@ -38,6 +39,7 @@ class AccommodationsController < ApplicationController
     @accommodation = Accommodation.new(accommodation_params)
     @user = current_user
     @accommodation.user = @user
+    @accommodation.available = true
     if @accommodation.save
       redirect_to accommodation_path(@accommodation)
     else
