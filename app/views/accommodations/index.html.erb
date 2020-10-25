@@ -6,42 +6,43 @@
       <h3>Accommodations</h3>
     <% end %>
 
-  <div class="row">
     <% @accommodations.each do |accommodation| %>
-     <div class="col-md-4 col-12 cards-index">
+     <div class="col-md-3 col-12">
         <%= link_to accommodation_path(accommodation) do %>
-          <div class="card card-items-index">
-            <div class="card-description">
+        <div class="card card-items-index">
+          <div class="card-img-top ">
+                <% if accommodation.photo.attached? %>
+                  <%= cl_image_tag accommodation.photo.key, height: 150, width: 220, crop: :fill %>
+                <% else %>
+                  <%= cl_image_tag src="https://res.cloudinary.com/dq6gibxhn/image/upload/v1603513918/htzhjlk7bxxqzvdylouw.png", height: 150, width: 220, crop: :fill %>
+                <% end  %>
+              <div class="card-description">
               <div class="card-body">
-                <h3 class="card-title"><%= accommodation.name %></h3>
-                <p class="card-text">Description: <%= accommodation.description %></p>
+                <h4 class="card-title"><%= accommodation.name %></h4>
+                <%# <p class="card-text">Description: <%= accommodation.description %></p>
                 <p class="card-text">Location: <%= accommodation.location %></p>
                 <p class="card-text">Type: <%= accommodation.property_type %></p>
-                <p class="card-text">Available: <%= accommodation.available %></p>
-                <% if accommodation.photo.attached? %>
-                  <%= cl_image_tag accommodation.photo.key, height: 150, width: 200, crop: :fill %>
-                <% else %>
-                  <%= cl_image_tag src="https://res.cloudinary.com/dq6gibxhn/image/upload/v1603513918/htzhjlk7bxxqzvdylouw.png", height: 150, width: 200, crop: :fill %>
-                <% end  %>
+                <%# <p class="card-text">Available: <%= accommodation.available %></p>
                 <p>Plice: $<%= accommodation.price %>/day</p>
               <div>
+              </div>
                 <% if current_user == accommodation.user %>
                   <%= link_to 'edit', edit_accommodation_path(accommodation), class: 'btn btn-light' %> | 
                   <%= link_to "delete", accommodation_path(accommodation), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-light' %>
                 <% elsif accommodation.available == true %>
                   <%= link_to 'Book', new_accommodation_booking_path(accommodation), class: 'btn btn-primary' %>
+                  <%= link_to 'Detail', accommodation_path(accommodation), class: 'btn btn-success' %>
                 <% else %>
-                  <p>Sorry not available</p>
+                  <p id="notavailable">Sorry not available...</p>
                 <% end %>
-                </div>
 
               </div>
             </div>
           </div>
         <% end %>
       </div>
+      </div>
     <% end %>
-  </div>
   <%# <div id="map"
   style="width: 100%; height: px;"
   data-markers="<%= @markers.to_json %>

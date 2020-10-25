@@ -55,7 +55,7 @@ h2 {
 
 p {
   font-size: 1.1em;
-  line-height: 1.7em;
+  line-height: 1.2em;
 }
 
 // header
@@ -112,8 +112,10 @@ input {
 
 // card
 .card-items-index {
-  margin: 20px 20px;
-  border: black 1px solid;
+  margin: 6px 0;
+  padding: 10px;
+  border: gray 1px solid;
+  height: 350px;
 
   .card-description {
     padding: 10px;
@@ -122,11 +124,8 @@ input {
   }
 }
 
-.card-body {
-  padding: 0;
-
-  h4 {
-    font-weight: bold;
-    margin: 0;
-  }
+#notavailable {
+  color:red;
+  font-size: 14px;
+  padding-top: 10px;
 }
