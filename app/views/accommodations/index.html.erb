@@ -1,10 +1,11 @@
+
+<div class="container">
   <% if @search_word.present? %>
     <h3>Searched by "<%= @search_word %>"： <%= @accommodations.count %></h3>
   <% else %>
     <h3>Accommodations</h3>
     <%= link_to 'Add accommodation', new_accommodation_path, class: 'btn btn-primary' %>
   <% end %>
-
 <div class="cards">
   <% @accommodations.each do |accommodation| %>
       <%= link_to accommodation_path(accommodation) do %>
@@ -15,14 +16,13 @@
         <% end %>
           <ul>
             <li><%= accommodation.location %></li>
-            <li><%= accommodation.property_type %> Type</li>
-            <li>$<%= accommodation.price %>/day</li>
+            <li>Type: <%= accommodation.property_type %> </li>
+            <li>Price: $<%= accommodation.price %>/day</li>
+          
             <% if current_user == accommodation.user %>
-              <li><%= link_to 'edit', edit_accommodation_path(accommodation) %> | 
-              <%= link_to "delete", accommodation_path(accommodation), method: :delete, data: { confirm: "Are you sure?" } %></li>
+              <li id="mine">It's your accommodation</li>
             <% elsif accommodation.available == true %>
-              <li><%= link_to 'Book', new_accommodation_booking_path(accommodation), class: 'btn btn-primary' %>
-              <%= link_to 'Detail', accommodation_path(accommodation), class: 'btn btn-success' %></li>
+              <li id="book">You can book!</li>
             <% else %>
               <li id="notavailable">Sorry not available...</li>
             <% end %>
@@ -31,3 +31,10 @@
     <% end %>
   <% end %>
 </div>
+</div>
+
+              <%# <li><%= link_to 'edit', edit_accommodation_path(accommodation) %> 
+              <%# <%= link_to "delete", accommodation_path(accommodation), method: :delete, data: { confirm: "Are you sure?" } %>
+            <%# <% elsif accommodation.available == true %>
+              <%# <li><%= link_to 'Book', new_accommodation_booking_path(accommodation), class: 'btn btn-primary' %>
+              <%# <%= link_to 'Detail', accommodation_path(accommodation), class: 'btn btn-success' %>

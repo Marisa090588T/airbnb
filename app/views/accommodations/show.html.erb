@@ -1,4 +1,5 @@
 <div class="container">
+    <h3 class="card-title"><%= @accommodation.name %></h3>
     <div class="col-md-6 col-12 cards-index">
       <div class="card card-items-index">
             <% if @accommodation.photo.attached? %>
@@ -8,11 +9,9 @@
             <% end  %>
           <div class="card-description">
           <div class="card-body">
-            <h3 class="card-title"><%= @accommodation.name %></h3>
             <p class="card-text">Description: <%= @accommodation.description %></p>
             <p class="card-text">Location: <%= @accommodation.location %></p>
             <p class="card-text">Type: <%= @accommodation.property_type %></p>
-            <p class="card-text">Available: <%= @accommodation.available %></p>
             <h3>$<%= @accommodation.price %>/day</h3>
 
 
