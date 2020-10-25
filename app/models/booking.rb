@@ -1,5 +1,5 @@
 class Booking < ApplicationRecord
-  STATUS = ["Awaiting", "Booked", "Declined"]
+  STATUS = ["Available", "Booked"]
   belongs_to :user
   belongs_to :accommodation
   validates :status, inclusion: { in: Booking::STATUS }

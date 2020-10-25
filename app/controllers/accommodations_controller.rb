@@ -41,7 +41,7 @@ class AccommodationsController < ApplicationController
     @accommodation.user = @user
     @accommodation.available = true
     if @accommodation.save
-      redirect_to accommodation_path(@accommodation)
+      redirect_to accommodations_path
     else
       render :new
     end
@@ -54,7 +54,7 @@ class AccommodationsController < ApplicationController
   def update
     @accommodation = Accommodation.find(params[:id])
     @accommodation.update(accommodation_params)
-    redirect_to accommodation_path(@accommodation)
+    redirect_to accommodations_path
   end
 
   def destroy

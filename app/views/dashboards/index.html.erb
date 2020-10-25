@@ -1,70 +1,52 @@
-<% provide(:title, 'Accommodations') %>
   <div class="container">
+
     <h3>My accommodations</h3>
-      <div class="row">
-        <% @accommodations.each do |accommodation| %>
-          <div class="col-md-4 col-12 cards-index">
-            <%= link_to accommodation_path(accommodation) do %>
-              <div class="card card-items-index">
-                <div class="card-description">
-                  <div class="card-body">
-                    <h3 class="card-title"><%= accommodation.name %></h3>
-                    <p class="card-text">Description: <%= accommodation.description %></p>
-                    <p class="card-text">Location: <%= accommodation.location %></p>
-                    <p class="card-text">Type: <%= accommodation.property_type %></p>
-                    <p class="card-text">Available: <%= accommodation.available %></p>
+      <% @accommodations.each do |accommodation| %>
+        <%= link_to accommodation_path(accommodation) do %>
+          <div class="card-product">
                     <% if accommodation.photo.attached? %>
                       <%= cl_image_tag accommodation.photo.key, height: 150, width: 200, crop: :fill %>
                     <% else %>
                       <%= cl_image_tag src="https://res.cloudinary.com/dq6gibxhn/image/upload/v1603513918/htzhjlk7bxxqzvdylouw.png", height: 150, width: 200, crop: :fill %>
                     <% end  %>
-                      <p>Plice: $<%= accommodation.price %>/day</p>
+                  <div class=card-product-infos>
+                    <h3><%= accommodation.name %></h3>
+                    <p>Description: <%= accommodation.description %></p>
+                    <p>Location: <%= accommodation.location %></p>
+                    <p>Type: <%= accommodation.property_type %></p>
+                    <p>Available: <%= accommodation.available %></p>
+                    <p>Plice: $<%= accommodation.price %>/day</p>
                     <div>
                       <%= link_to 'edit', edit_accommodation_path(accommodation), class: 'btn btn-light' %> | 
                       <%= link_to "delete", accommodation_path(accommodation), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-light' %>
                     </div>
                   </div>
-                </div>
-              </div>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
+            </div>
+          <% end %>
+      <% end %>
 
-      <h3>My Waiting list</h3>
-      <div class="row">
+
+      <h3>My Bookings</h3>
         <% @requests.each do |booking| %>
-          <div class="col-md-4 col-12 cards-index">
-            <%= link_to accommodation_booking_path(@accommodation, booking) do %>
-              <div class="card card-items-index">
-                <div class="card-description">
-                  <div class="card-body">
-                    <h3 class="card-title"><%= booking.accommodation.name %></h3>
-                    <p class="card-text">Description: <%= booking.accommodation.description %></p>
-                    <p class="card-text">Location: <%= booking.accommodation.location %></p>
-                    <p class="card-text">Type: <%= booking.accommodation.property_type %></p>
-                    <p class="card-text">Available: <%= booking.accommodation.available %></p>
+            <%= link_to booking_path(booking) do %>
+          <div class="card-product">
                     <% if booking.accommodation.photo.attached? %>
                       <%= cl_image_tag booking.accommodation.photo.key, height: 150, width: 200, crop: :fill %>
                     <% else %>
                       <%= cl_image_tag src="https://res.cloudinary.com/dq6gibxhn/image/upload/v1603513918/htzhjlk7bxxqzvdylouw.png", height: 150, width: 200, crop: :fill %>
                     <% end  %>
-                      <p>Plice: $<%= booking.accommodation.price %>/day</p>
-                    <div>
 
-                  <div>
-                    <%= link_to 'Accept', accommodation_booking_path(@accommodation, booking, booking: {status: "Booked"}), method: :patch, data: { confirm: 'Are you sure?' } %> |
-                    <% if booking.status != "Declined"%>
-                      <%= link_to 'Decline', accommodation_booking_path(@accommodation, booking, booking: {status: "Declined"}), method: :patch, data: { confirm: 'Are you sure?' } %>
-                    <% end %>
+                  <div class=card-product-infos>
+                    <h3 class="card-title"><%= booking.accommodation.name %></h3>
+                    <p class="card-text">Description: <%= booking.accommodation.description %></p>
+                    <p class="card-text">Location: <%= booking.accommodation.location %></p>
+                    <p class="card-text">Type: <%= booking.accommodation.property_type %></p>
+                    <p class="card-text">Status: <%= booking.status %></p>  
+                    <p>Plice: $<%= booking.total_price %></p>
                   </div>
 
-                  </div>
                 </div>
-              </div>
-            </div>
+
             <% end %>
-          </div>
         <% end %>
-      </div>
     </div>

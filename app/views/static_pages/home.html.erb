@@ -2,8 +2,8 @@
   <% if user_signed_in? %>
     <h1>Welcome to Airbnb!</h1>
     <%= link_to 'Add accommodation', new_accommodation_path, class: 'btn btn-primary' %>
-    <%= link_to 'Book accommodation', accommodations_path, class: 'btn btn-success' %>
+    <%= link_to 'See accommodations', accommodations_path, class: 'btn btn-success' %>
   <% else %>
-    <p>You need Login</p>
+    <%= link_to 'Log in', user_session_path, class: 'btn btn-success' %>
   <% end %>
 </center>
