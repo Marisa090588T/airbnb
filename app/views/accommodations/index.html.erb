@@ -1,51 +1,33 @@
-<% provide(:title, 'Accommodations') %>
-  <div class="container">
-    <% if @search_word.present? %>
-      <h3>Searched by "<%= @search_word %>"： <%= @accommodations.count %></h3>
-    <% else %>
-      <h3>Accommodations</h3>
-    <% end %>
+  <% if @search_word.present? %>
+    <h3>Searched by "<%= @search_word %>"： <%= @accommodations.count %></h3>
+  <% else %>
+    <h3>Accommodations</h3>
+    <%= link_to 'Add accommodation', new_accommodation_path, class: 'btn btn-primary' %>
+  <% end %>
 
-  <div class="row">
-    <% @accommodations.each do |accommodation| %>
-     <div class="col-md-4 col-12 cards-index">
-        <%= link_to accommodation_path(accommodation) do %>
-          <div class="card card-items-index">
-            <div class="card-description">
-              <div class="card-body">
-                <h3 class="card-title"><%= accommodation.name %></h3>
-                <p class="card-text">Description: <%= accommodation.description %></p>
-                <p class="card-text">Location: <%= accommodation.location %></p>
-                <p class="card-text">Type: <%= accommodation.property_type %></p>
-                <p class="card-text">Available: <%= accommodation.available %></p>
-                <% if accommodation.photo.attached? %>
-                  <%= cl_image_tag accommodation.photo.key, height: 150, width: 200, crop: :fill %>
-                <% else %>
-                  <%= cl_image_tag src="https://res.cloudinary.com/dq6gibxhn/image/upload/v1603513918/htzhjlk7bxxqzvdylouw.png", height: 150, width: 200, crop: :fill %>
-                <% end  %>
-                <p>Plice: $<%= accommodation.price %>/day</p>
-              <div>
-                <% if current_user == accommodation.user %>
-                  <%= link_to 'edit', edit_accommodation_path(accommodation), class: 'btn btn-light' %> | 
-                  <%= link_to "delete", accommodation_path(accommodation), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-light' %>
-                <% elsif accommodation.available == true %>
-                  <%= link_to 'Book', new_accommodation_booking_path(accommodation), class: 'btn btn-primary' %>
-                <% else %>
-                  <p>Sorry not available</p>
-                <% end %>
-                </div>
-
-              </div>
-            </div>
-          </div>
+<div class="cards">
+  <% @accommodations.each do |accommodation| %>
+      <%= link_to accommodation_path(accommodation) do %>
+        <% if accommodation.photo.attached? %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path accommodation.photo.key %>')">
+        <% else %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path "https://res.cloudinary.com/dq6gibxhn/image/upload/v1603593033/n7mb1til97o0i9ve1ccvm5pdcplc.jpg" %>')">
         <% end %>
+          <ul>
+            <li><%= accommodation.location %></li>
+            <li><%= accommodation.property_type %> Type</li>
+            <li>$<%= accommodation.price %>/day</li>
+            <% if current_user == accommodation.user %>
+              <li><%= link_to 'edit', edit_accommodation_path(accommodation) %> | 
+              <%= link_to "delete", accommodation_path(accommodation), method: :delete, data: { confirm: "Are you sure?" } %></li>
+            <% elsif accommodation.available == true %>
+              <li><%= link_to 'Book', new_accommodation_booking_path(accommodation), class: 'btn btn-primary' %>
+              <%= link_to 'Detail', accommodation_path(accommodation), class: 'btn btn-success' %></li>
+            <% else %>
+              <li id="notavailable">Sorry not available...</li>
+            <% end %>
+          </ul>
       </div>
     <% end %>
-  </div>
-  <%# <div id="map"
-  style="width: 100%; height: px;"
-  data-markers="<%= @markers.to_json %>
-  <%# data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY']
-</div>  %>
+  <% end %>
 </div>
-
