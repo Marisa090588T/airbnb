@@ -10,5 +10,8 @@ Rails.application.routes.draw do
     resources :bookings
   end
 
+  post   "favorites/:accommodation_id/create"  => "favorites#create"
+  delete "favorites/:accommodation_id/destroy" => "favorites#destroy"
+
   # resources :bookings
 end
