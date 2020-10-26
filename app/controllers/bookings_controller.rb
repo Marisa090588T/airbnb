@@ -51,7 +51,7 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
-    redirect_to dashboards_path, notice: 'Booking was successfully canceled.'
+    redirect_to bookings_path, notice: 'Booking was successfully canceled.'
   end
 
   private
