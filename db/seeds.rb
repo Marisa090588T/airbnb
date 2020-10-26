@@ -16,7 +16,7 @@ Accommodation.destroy_all
 
 puts "Accommodation data destroyed!"
 
-puts 'Creating 3 default user...'
+puts 'Creating 2 default user...'
 
 user = User.new(
   first_name: "firstname1",
@@ -28,27 +28,17 @@ user = User.new(
 
 user.save!
 
-user_as_lender = User.new(
+user_2 = User.new(
   first_name: "firstname2",
   last_name: "lastname2",
-  user_name: "lender",
-  email: "lender@lender.com",
+  user_name: "user2",
+  email: "user2@user.com",
   password: "password"
 )
 
-user_as_lender.save!
+user_2.save!
 
-user_as_borrower = User.new(
-  first_name: "firstname3",
-  last_name: "lastname3",
-  user_name: "borrower",
-  email: "borrower@borrower.com",
-  password: "password"
-)
-
-user_as_borrower.save!
-
-puts 'Users are created!'
+puts '2 Users are created!'
 
 puts 'Creating 12 default accommodations ...'
 
@@ -111,7 +101,7 @@ accommodation5 = Accommodation.create!(
   available: true,
   property_type: "single type",
   price: rand(100),
-  user_id: 2)
+  user_id: 1)
 
 file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603437590/seiva76ulf4wupxvyjmh.jpg')
 accommodation5.photo.attach(io: file, filename: 'nes.jpg', content_type: 'image/jpg')
@@ -124,7 +114,7 @@ accommodation6 = Accommodation.create!(
   available: false,
   property_type: "friend type",
   price: rand(100),
-  user_id: 2)
+  user_id: 1)
 
 file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603437650/zurgmnwiczuqqyc4oq7g.jpg')
 accommodation6.photo.attach(io: file, filename: 'nes.jpg', content_type: 'image/jpg')
@@ -163,7 +153,7 @@ accommodation9 = Accommodation.create!(
   available: true,
   property_type: "friend type",
   price: rand(100),
-  user_id: 3)
+  user_id: 2)
 
 file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603626291/buxhswevy7xbhwlswqgb.jpg')
 accommodation9.photo.attach(io: file, filename: 'nes.jpg', content_type: 'image/jpg')
@@ -176,7 +166,7 @@ accommodation10 = Accommodation.create!(
   available: false,
   property_type: "family type",
   price: rand(100),
-  user_id: 3)
+  user_id: 2)
 
 file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603624299/jjtgyj4dx4sjmonrfm5ptklmgcgc.jpg')
 accommodation10.photo.attach(io: file, filename: 'nes.jpg', content_type: 'image/jpg')
@@ -189,7 +179,7 @@ accommodation11 = Accommodation.create!(
   available: true,
   property_type: "single type",
   price: rand(100),
-  user_id: 3)
+  user_id: 2)
 
 file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603626260/fppq7toffpl2pntxfmgt.jpg')
 accommodation11.photo.attach(io: file, filename: 'nes.jpg', content_type: 'image/jpg')
@@ -202,7 +192,7 @@ accommodation12 = Accommodation.create!(
   available: true,
   property_type: "friend type",
   price: rand(100),
-  user_id: 3)
+  user_id: 2)
 
 file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603626291/buxhswevy7xbhwlswqgb.jpg')
 accommodation12.photo.attach(io: file, filename: 'nes.jpg', content_type: 'image/jpg')
