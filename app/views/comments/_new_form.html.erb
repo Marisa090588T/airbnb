@@ -1,0 +1,13 @@
+<%= form_for(@comment) do |f| %>
+  <%= hidden_field_tag :accommodation_id, @accommodation.id %>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-1">
+      <div class="field">
+        <%= f.text_area :content, placeholder: "Add comment" %>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

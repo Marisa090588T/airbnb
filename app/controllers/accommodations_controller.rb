@@ -18,6 +18,8 @@ class AccommodationsController < ApplicationController
   def show
     @accommodation = Accommodation.find(params[:id])
     @user = @accommodation.user
+    @comment = Comment.new
+    @comments  = @accommodation.accommodation_comment(@accommodation.id)
   end
 
   def new
