@@ -2,7 +2,7 @@ class AccommodationsController < ApplicationController
   before_action :search
   def index
     @accommodations = Accommodation.all
-    
+
     if user_signed_in?
       @q = Accommodation.ransack(params[:q])
       @accommodations = @q.result(distinct: true)

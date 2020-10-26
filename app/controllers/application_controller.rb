@@ -9,8 +9,7 @@ class ApplicationController < ActionController::Base
   end
 
   private
-  
+
   def search_params
   end
 end
-

@@ -49,7 +49,8 @@ accommodation1 = Accommodation.create!(
   available: true,
   property_type: "family type",
   price: rand(100),
-  user_id: 1)
+  user_id: 1
+)
 
 file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603436961/p2x4jmgnsuhsx8doqt6f.jpg')
 accommodation1.photo.attach(io: file, filename: 'nes.jpg', content_type: 'image/jpg')
@@ -62,7 +63,8 @@ accommodation2 = Accommodation.create!(
   available: false,
   property_type: "single type",
   price: rand(100),
-  user_id: 1)
+  user_id: 1
+)
 
 file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603437590/seiva76ulf4wupxvyjmh.jpg')
 accommodation2.photo.attach(io: file, filename: 'nes.jpg', content_type: 'image/jpg')
@@ -75,7 +77,8 @@ accommodation3 = Accommodation.create!(
   available: true,
   property_type: "friend type",
   price: rand(100),
-  user_id: 1)
+  user_id: 1
+)
 
 file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603437650/zurgmnwiczuqqyc4oq7g.jpg')
 accommodation3.photo.attach(io: file, filename: 'nes.jpg', content_type: 'image/jpg')
@@ -88,7 +91,8 @@ accommodation4 = Accommodation.create!(
   available: false,
   property_type: "family type",
   price: rand(100),
-  user_id: 1)
+  user_id: 1
+)
 
 file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603436961/p2x4jmgnsuhsx8doqt6f.jpg')
 accommodation4.photo.attach(io: file, filename: 'nes.jpg', content_type: 'image/jpg')
@@ -101,7 +105,8 @@ accommodation5 = Accommodation.create!(
   available: true,
   property_type: "single type",
   price: rand(100),
-  user_id: 1)
+  user_id: 1
+)
 
 file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603437590/seiva76ulf4wupxvyjmh.jpg')
 accommodation5.photo.attach(io: file, filename: 'nes.jpg', content_type: 'image/jpg')
@@ -114,7 +119,8 @@ accommodation6 = Accommodation.create!(
   available: false,
   property_type: "friend type",
   price: rand(100),
-  user_id: 1)
+  user_id: 1
+)
 
 file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603437650/zurgmnwiczuqqyc4oq7g.jpg')
 accommodation6.photo.attach(io: file, filename: 'nes.jpg', content_type: 'image/jpg')
@@ -127,7 +133,8 @@ accommodation7 = Accommodation.create!(
   available: true,
   property_type: "family type",
   price: rand(100),
-  user_id: 2)
+  user_id: 2
+)
 
 file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603624299/jjtgyj4dx4sjmonrfm5ptklmgcgc.jpg')
 accommodation7.photo.attach(io: file, filename: 'nes.jpg', content_type: 'image/jpg')
@@ -140,7 +147,8 @@ accommodation8 = Accommodation.create!(
   available: false,
   property_type: "single type",
   price: rand(100),
-  user_id: 2)
+  user_id: 2
+)
 
 file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603626260/fppq7toffpl2pntxfmgt.jpg')
 accommodation8.photo.attach(io: file, filename: 'nes.jpg', content_type: 'image/jpg')
@@ -153,7 +161,8 @@ accommodation9 = Accommodation.create!(
   available: true,
   property_type: "friend type",
   price: rand(100),
-  user_id: 2)
+  user_id: 2
+)
 
 file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603626291/buxhswevy7xbhwlswqgb.jpg')
 accommodation9.photo.attach(io: file, filename: 'nes.jpg', content_type: 'image/jpg')
@@ -166,7 +175,8 @@ accommodation10 = Accommodation.create!(
   available: false,
   property_type: "family type",
   price: rand(100),
-  user_id: 2)
+  user_id: 2
+)
 
 file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603624299/jjtgyj4dx4sjmonrfm5ptklmgcgc.jpg')
 accommodation10.photo.attach(io: file, filename: 'nes.jpg', content_type: 'image/jpg')
@@ -179,7 +189,8 @@ accommodation11 = Accommodation.create!(
   available: true,
   property_type: "single type",
   price: rand(100),
-  user_id: 2)
+  user_id: 2
+)
 
 file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603626260/fppq7toffpl2pntxfmgt.jpg')
 accommodation11.photo.attach(io: file, filename: 'nes.jpg', content_type: 'image/jpg')
@@ -192,7 +203,8 @@ accommodation12 = Accommodation.create!(
   available: true,
   property_type: "friend type",
   price: rand(100),
-  user_id: 2)
+  user_id: 2
+)
 
 file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603626291/buxhswevy7xbhwlswqgb.jpg')
 accommodation12.photo.attach(io: file, filename: 'nes.jpg', content_type: 'image/jpg')
