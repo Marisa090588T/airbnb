@@ -3,7 +3,7 @@
   <% if @search_word.present? %>
     <h3>Searched by "<%= @search_word %>"： <%= @accommodations.count %></h3>
   <% else %>
-    <h3>Accommodations</h3>
+    <h1>Accommodations</h1>
     <%= link_to 'Add accommodation', new_accommodation_path, class: 'btn btn-primary' %>
   <% end %>
 <div class="cards">
@@ -32,9 +32,3 @@
   <% end %>
 </div>
 </div>
-
-              <%# <li><%= link_to 'edit', edit_accommodation_path(accommodation) %> 
-              <%# <%= link_to "delete", accommodation_path(accommodation), method: :delete, data: { confirm: "Are you sure?" } %>
-            <%# <% elsif accommodation.available == true %>
-              <%# <li><%= link_to 'Book', new_accommodation_booking_path(accommodation), class: 'btn btn-primary' %>
-              <%# <%= link_to 'Detail', accommodation_path(accommodation), class: 'btn btn-success' %>
