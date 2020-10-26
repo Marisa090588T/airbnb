@@ -85,7 +85,6 @@ footer {
 }
 
 // input form
-
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
@@ -111,7 +110,7 @@ input {
   }
 }
 
-// card
+// font color
 
 #notavailable {
   color:lightsalmon;
@@ -128,6 +127,8 @@ input {
 #price {
   color: lightseagreen;
 }
+
+// cards
 
 .card-product {
   margin: 10px;
@@ -161,8 +162,6 @@ input {
 .card-product .card-product-infos {
   padding: 16px;
 }
-
-// cards
 
 .cards {
   display: grid;
@@ -225,8 +224,6 @@ input {
   color: white;
 }
 
-// card
-
 .card-trip {
   overflow: hidden;
   background: white;
@@ -252,7 +249,6 @@ input {
   line-height: 1.5rem;
 }
 
-
 .card-trip .card-trip-infos {
   padding: 16px;
   display: flex;
@@ -277,8 +273,6 @@ input {
 }
 
 // comment
-
-
 .title-comment {
   font-weight: bold;
   font-size: 17px;
