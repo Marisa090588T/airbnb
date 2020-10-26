@@ -1,12 +1,12 @@
 <header class="navbar navbar-fixed-top">
  <div class="container">
-   <%# <%= link_to(image_tag("header_logo.jpg", :alt => ""), root_url, id: 'logo') %>
    <nav>
+    <%= render 'layouts/search' if user_signed_in? %>
      <ul class="nav navbar-nav navbar-right">
-       <li><%= link_to 'home', root_path %></li>
         <% if user_signed_in? %>
+        <li><%= link_to 'Accommodations', accommodations_path %></li>
         <li><%= link_to "Dashboard", dashboards_path(@user) %></li>
-        <li><%= link_to "Log out", destroy_user_session_path, method: :get %></li>  
+        <li><%= link_to "Log out", destroy_user_session_path, method: :get %></li> 
         <% else %>
           <li><%= link_to 'Sign up', new_user_registration_path %></li>
           <li><%= link_to 'Log in', new_user_session_path %></li>

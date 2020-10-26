@@ -1,28 +1,29 @@
 <div class="container">
-  <div class="row">  
-    <div class="col-md-8 col-12 cards-index">
-      <div class="card card-items-index">
-        <div class="card-description">
-          <!-- add image here? -->
-          <div class="card-body">
-            <h3 class="card-title"><%= @accommodation.name %></h3>
-            <p class="card-text">Description: <%= @accommodation.description %></p>
-            <p class="card-text">Location: <%= @accommodation.location %></p>
-            <p class="card-text">Type: <%= @accommodation.property_type %></p>
-            <p class="card-text">Available: <%= @accommodation.available %></p>
-            <%= cl_image_tag @accommodation.photo.key, height: 400, width: 600, crop: :fill %>
-            <h3>$<%= @accommodation.price %>/day</h3>
-
-            <%= link_to 'Book', new_accommodation_booking_path(@accommodation), class: 'btn btn-primary' %>
-            <% if current_user == @accommodation.user %>
-              <%= link_to 'edit', edit_accommodation_path(@accommodation) %> | 
-              <%= link_to "delete", accommodation_path(@accommodation), method: :delete, data: { confirm: "Are you sure?" } %>
+  <h1>Your accommodation <%= @accommodation.name %></h1>
+<div class="card-trip">
+            <% if @accommodation.photo.attached? %>
+              <%= cl_image_tag @accommodation.photo.key, height: 150, width: 200, crop: :fill %>
             <% else %>
-              book<%# <%= link_to " book ", new_accommodation_booking_path(@accommodation), class: "btn btn-primary"%>
-            <% end %>  
-          </div>      
-        </div>
+              <img src="https://res.cloudinary.com/dq6gibxhn/image/upload/v1603593033/n7mb1til97o0i9ve1ccvm5pdcplc.jpg" %>
+            <% end  %>
+          <div class="card-trip-infos">
+      <div>
+          <h2><%= @accommodation.name %>@<%= @accommodation.location %></h2>
+            <p class="card-text">Description: <%= @accommodation.description %></p>
+            <p class="card-text">Type: <%= @accommodation.property_type %></p>
+          <h2 id="price">$<%= @accommodation.price %>/day</h2>
       </div>
+              <% if current_user == @accommodation.user %>
+              <div>
+              <%= link_to 'edit', edit_accommodation_path(@accommodation), class: 'btn btn-success' %> 
+              <%= link_to "delete", accommodation_path(@accommodation), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-warning' %>
+              </div>
+            <% elsif @accommodation.available == true  %>
+              <%= link_to 'Book', new_accommodation_booking_path(@accommodation), class: 'btn btn-primary' %>
+            <% else %>
+              <p >Sorry not available... <%= link_to 'See other accommodations', accommodations_path %></p>
+            <% end %>  
+
+        </div>
     </div>
   </div>
-</div>

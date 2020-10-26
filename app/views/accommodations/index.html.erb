@@ -1,34 +1,34 @@
+
 <div class="container">
-  <div class="row">
-    <% @accommodations.each do |accommodation| %>
-     <div class="col-md-4 col-12 cards-index">
-        <%= link_to accommodation_path(accommodation) do %>
-          <div class="card card-items-index">
-            <div class="card-description">
-              <!-- add image here? -->
-              <div class="card-body">
-                <h3 class="card-title"><%= accommodation.name %></h3>
-                <p class="card-text">Description: <%= accommodation.description %></p>
-                <p class="card-text">Location: <%= accommodation.location %></p>
-                <p class="card-text">Type: <%= accommodation.property_type %></p>
-                <p class="card-text">Available: <%= accommodation.available %></p>
-                <%= cl_image_tag accommodation.photo.key, height: 150, width: 200, crop: :fill %>
-                <p>Plice: $<%= accommodation.price %>/day</p>
-              <div>
-              <br>
-                <%= link_to 'Book', new_accommodation_booking_path(accommodation), class: 'btn btn-primary' %>
-                <% if current_user == accommodation.user %>
-                  <%= link_to 'edit', edit_accommodation_path(accommodation) %> | 
-                  <%= link_to "delete", accommodation_path(accommodation), method: :delete, data: { confirm: "Are you sure?" } %>
-                <% else %>
-                  book
-                <% end %>
-                </div>
-              </div>
-            </div>
-          </div>
+  <% if @search_word.present? %>
+    <h3>Searched by "<%= @search_word %>"： <%= @accommodations.count %></h3>
+  <% else %>
+    <h1>Accommodations</h1>
+    <%= link_to 'Add accommodation', new_accommodation_path, class: 'btn btn-primary' %>
+  <% end %>
+<div class="cards">
+  <% @accommodations.each do |accommodation| %>
+      <%= link_to accommodation_path(accommodation) do %>
+        <% if accommodation.photo.attached? %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path accommodation.photo.key %>')">
+        <% else %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path "https://res.cloudinary.com/dq6gibxhn/image/upload/v1603593033/n7mb1til97o0i9ve1ccvm5pdcplc.jpg" %>')">
         <% end %>
+          <ul>
+            <li><%= accommodation.location %></li>
+            <li>Type: <%= accommodation.property_type %> </li>
+            <li>Price: $<%= accommodation.price %>/day</li>
+          
+            <% if current_user == accommodation.user %>
+              <li id="mine">It's your accommodation</li>
+            <% elsif accommodation.available == true %>
+              <li id="book">You can book!</li>
+            <% else %>
+              <li id="notavailable">Sorry not available...</li>
+            <% end %>
+          </ul>
       </div>
     <% end %>
-  </div>
+  <% end %>
+</div>
 </div>

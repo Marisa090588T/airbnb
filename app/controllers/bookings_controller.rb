@@ -6,7 +6,6 @@ class BookingsController < ApplicationController
   end
 
   def show
-    @accommodation = Accommodation.find(params[:accommodation_id])
   end
 
   def new
@@ -15,15 +14,18 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @accommodation = Accommodation.find(params[:accommodation_id])
     @booking = Booking.new(booking_params)
+    @accommodation = Accommodation.find(params[:accommodation_id])
     @booking.accommodation = @accommodation
     @booking.user = current_user
     @booking.total_price = calculated_price
-    @booking.status = "Awaiting"
+    @booking.status = "Booked"
 
     if @booking.save
-      redirect_to accommodation_booking_path(@accommodation, @booking), notice: 'Booking request was created.'
+      @accommodation = Accommodation.find(params[:accommodation_id])
+      @accommodation.available = false
+      @accommodation.save
+      redirect_to booking_path(@booking), notice: 'Booking was successfully created.'
     else
       render :new
     end
@@ -34,10 +36,10 @@ class BookingsController < ApplicationController
 
   def update
     @accommodation = Accommodation.find(params[:accommodation_id])
-    @booking.accommodation = @accommodation
-    @booking.total_price = calculated_price
-    if @booking.update!(booking_params)
-      redirect_to accommodation_booking_path, notice: 'Booking was successfully updated.'
+    if @booking.update(booking_params)
+      @booking.total_price = calculated_price
+      @booking.save
+      redirect_to @booking, notice: 'Booking was successfully updated.'
     else
       render :edit
     end
@@ -49,7 +51,7 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
-    redirect_to dashboards_path, notice: 'Booking was successfully deleted.'
+    redirect_to dashboards_path, notice: 'Booking was successfully canceled.'
   end
 
   private

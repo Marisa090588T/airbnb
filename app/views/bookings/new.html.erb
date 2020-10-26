@@ -1,7 +1,7 @@
 <div class="container bookings">
-  <h1>Book  </h1>
+  <h1>Book <%= @accommodation.name %></h1>
 
   <%= render 'form', booking: @booking %>
 
-  <%= link_to 'Back', accommodation_path(@accommodation) %>
+  <%= link_to 'Back', accommodations_path %>
 </div>

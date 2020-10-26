@@ -1,7 +1,5 @@
-<% provide(:title, "Edit accommodation") %>
-
 <div class="container">
-  <h1>Edit accommodation</h1>
+  <h1>Edit <%= @accommodation.name %></h1>
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <%= simple_form_for [@user, @accommodation] do |f|%>
@@ -9,12 +7,11 @@
         <%= f.input :description %>
         <%= f.input :price %>
         <%= f.input :location %>
-        <%= f.input :property_type %>
+        <%= f.input :property_type, collection: Accommodation::TYPES %>
         <%= f.input :photo, as: :file %>
-        <%# <%= f.input :perks, as: :check_boxes, collection: property_type::PERKS, input_html: { multiple: true }, include_hidden: false %>
-        <%# <%= f.input :photo, as: :file %>
         <%= f.button :submit, value: 'Edit Accommodation', class: 'btn btn-primary' %>
-        <%= link_to 'cancel', accommodation_path %>
+        <%= link_to 'Cancel', dashboards_path %> |
+        <%= link_to 'Home', accommodations_path %>
       <% end %>
     </div>
   </div>
