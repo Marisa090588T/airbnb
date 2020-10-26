@@ -52,7 +52,6 @@ class AccommodationsController < ApplicationController
     @accommodation.destroy
     respond_to do |format|
       format.html { redirect_to @accommodation, notice: 'Accommodation was successfully deleted!' }
-      format.json { head :no_content }
     end
   end
 

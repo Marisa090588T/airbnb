@@ -64,6 +64,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # gem 'geocoder'
 gem 'devise'
 gem 'bootstrap-sass'
+gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'jquery-rails'
 gem 'cloudinary', '~> 1.16.0'
