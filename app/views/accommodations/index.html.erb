@@ -1,6 +1,6 @@
 <div class="container">
     <% if @search_word.present? %>
-      <h3>Searched by "<%= @search_word %>"： <%= @accommodations.count %></h3>
+      <h3>Searched by location "<%= @search_word %>"： <%= @accommodations.count %> results</h3>
     <% else %>
       <h3>Accommodations</h3>
       <%= link_to 'Add accommodation', new_accommodation_path, class: 'btn btn-primary' %>

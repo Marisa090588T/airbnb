@@ -10,14 +10,14 @@
               <%= cl_image_tag src="https://res.cloudinary.com/dq6gibxhn/image/upload/v1603593033/n7mb1til97o0i9ve1ccvm5pdcplc.jpg", width: 300 %>
             <% end  %>
           <div class=card-product-infos>
-            <h3><%= favorite.accommodation.name %> @ <%= favorite.accommodation.location %></h3>
+            <p class="card-title"><%= favorite.accommodation.name %> @ <%= favorite.accommodation.location %></p>
             <p>Description: <%= favorite.accommodation.description %></p>
             <p>Type: <%= favorite.accommodation.property_type %></p>
-            <p>Price: $<%= favorite.accommodation.price %> /day</p>
+            <p id="price">Price: $<%= favorite.accommodation.price %> /day</p>
             <% if favorite.accommodation.available == true %>
-              <h3>Status: Available</h3>
+              <p id="book">Status: Available</p>
             <% else %>
-              <h3>Status: Booked</h3>
+              <p id="notavailable">Status: Not available</p>
             <% end  %>
           </div>
         </div>

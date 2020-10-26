@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Your accommodation <%= @accommodation.name %></h1>
+  <h3><%= @accommodation.name %> @ <%= @accommodation.location %></h3>
     <div class="card-trip">
     　<% if @accommodation.photo.attached? %>
       　<%= cl_image_tag @accommodation.photo.key, height: 150, width: 200, crop: :fill %>
@@ -8,10 +8,9 @@
       <% end  %>
       <div class="card-trip-infos">
         <div>
-          <h2><%= @accommodation.name %>@<%= @accommodation.location %></h2>
           <p class="card-text">Description: <%= @accommodation.description %></p>
           <p class="card-text">Type: <%= @accommodation.property_type %></p>
-          <h2 id="price">$<%= @accommodation.price %>/day</h2>
+          <p id="price">$<%= @accommodation.price %>/day</p>
           <% if current_user != @accommodation.user %>
             <%= render 'users/favorite_form' %>
           <% end %>  
