@@ -1,30 +1,29 @@
 <div class="container">
   <h1>Your booking <%= @booking.accommodation.name %></h1>
-<div class="card-trip">
-            <% if @booking.accommodation.photo.attached? %>
-              <%= cl_image_tag @booking.accommodation.photo.key, height: 150, width: 200, crop: :fill %>
-            <% else %>
-              <%= cl_image_tag src="https://res.cloudinary.com/dq6gibxhn/image/upload/v1603513918/htzhjlk7bxxqzvdylouw.png", height: 150, width: 200, crop: :fill %>
-            <% end  %>
-                      <div class="card-trip-infos">
-            <div>
-            <h2 class="card-title"><%= @booking.accommodation.name %>@<%= @booking.accommodation.location %></h2>
-            <p class="card-text">Description: <%= @booking.accommodation.description %></p>
-            <p class="card-text">Type: <%= @booking.accommodation.property_type %></p>
-            <p class="card-text">Start Date: <%= @booking.start_date %></p>
-            <p class="card-text">End Date: <%= @booking.end_date %></p>
-            <p class="card-text">Status: <%= @booking.status %></p>
-            <h2 id="price">Total Price: $ <%= @booking.total_price %> / <%= (@booking.end_date - @booking.start_date).to_i %>days</h2>
-            </div>
-            <% if current_user == @booking.user %>
-            <div>
-              <%= link_to 'Edit', edit_booking_path, class: 'btn btn-success' %> 
-              <%= link_to "Cancel", booking_path(@booking), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-warning' %>
-            </div>
-            <% else %>
-              <%= link_to 'Back to Dashboard', dashboards_path %>
-            <% end %>  
-
+  <div class="card-trip">
+    <% if @booking.accommodation.photo.attached? %>
+      <%= cl_image_tag @booking.accommodation.photo.key, height: 150, width: 200, crop: :fill %>
+    <% else %>
+      <%= cl_image_tag src="https://res.cloudinary.com/dq6gibxhn/image/upload/v1603513918/htzhjlk7bxxqzvdylouw.png", height: 150, width: 200, crop: :fill %>
+    <% end  %>
+    <div class="card-trip-infos">
+      <div>
+        <h2 class="card-title"><%= @booking.accommodation.name %>@<%= @booking.accommodation.location %></h2>
+        <p class="card-text">Description: <%= @booking.accommodation.description %></p>
+        <p class="card-text">Type: <%= @booking.accommodation.property_type %></p>
+        <p class="card-text">Start Date: <%= @booking.start_date %></p>
+        <p class="card-text">End Date: <%= @booking.end_date %></p>
+        <p class="card-text">Status: <%= @booking.status %></p>
+        <h2 id="price">Total Price: $ <%= @booking.total_price %> / <%= (@booking.end_date - @booking.start_date).to_i %>days</h2>
+      </div>
+      <% if current_user == @booking.user %>
+        <div>
+          <%= link_to 'Edit', edit_booking_path, class: 'btn btn-success' %> 
+          <%= link_to "Cancel", booking_path(@booking), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-warning' %>
+        </div>
+        <% else %>
+          <%= link_to 'Back to Dashboard', dashboards_path %>
+        <% end %>  
     </div>
   </div>
 </div>

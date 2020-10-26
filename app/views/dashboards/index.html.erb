@@ -1,26 +1,25 @@
-  <div class="container">
-
-    <h3>My accommodations(<%= @accommodations.count %>)</h3>
-      <% @accommodations.each do |accommodation| %>
-        <%= link_to accommodation_path(accommodation) do %>
-          <div class="card-product">
-                    <% if accommodation.photo.attached? %>
-                      <%= cl_image_tag accommodation.photo.key, width: 300 %>
-                    <% else %>
-                      <%= cl_image_tag src="https://res.cloudinary.com/dq6gibxhn/image/upload/v1603593033/n7mb1til97o0i9ve1ccvm5pdcplc.jpg", width: 300 %>
-                    <% end  %>
-                  <div class=card-product-infos>
-                    <h3><%= accommodation.name %> @ <%= accommodation.location %></h3>
-                    <p>Description: <%= accommodation.description %></p>
-                    <p>Type: <%= accommodation.property_type %></p>
-                    <p>Price: $<%= accommodation.price %> /day</p>
-                    <% if accommodation.available == true %>
-                      <h3>Status: Available</h3>
-                    <% else %>
-                      <h3>Status: Booked</h3>
-                    <% end  %>
-                  </div>
-            </div>
-          <% end %>
-      <% end %>
-    </div>
+<div class="container">
+  <h3>My accommodations(<%= @accommodations.count %>)</h3>
+  <% @accommodations.each do |accommodation| %>
+    <%= link_to accommodation_path(accommodation) do %>
+      <div class="card-product">
+        <% if accommodation.photo.attached? %>
+          <%= cl_image_tag accommodation.photo.key, width: 300 %>
+        <% else %>
+          <%= cl_image_tag src="https://res.cloudinary.com/dq6gibxhn/image/upload/v1603593033/n7mb1til97o0i9ve1ccvm5pdcplc.jpg", width: 300 %>
+        <% end  %>
+        <div class=card-product-infos>
+          <h3><%= accommodation.name %> @ <%= accommodation.location %></h3>
+          <p>Description: <%= accommodation.description %></p>
+          <p>Type: <%= accommodation.property_type %></p>
+          <p>Price: $<%= accommodation.price %> /day</p>
+          <% if accommodation.available == true %>
+            <h3>Status: Available</h3>
+          <% else %>
+            <h3>Status: Booked</h3>
+          <% end  %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

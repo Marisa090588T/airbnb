@@ -1,27 +1,27 @@
 <div class="container">
-    <h3>My Favorite (<%= @favorites.count %>)</h3>
-  <% if @favorites.present? %>
-        <% @favorites.each do |favorite| %>
+  <h3>My Favorite (<%= @favorites.count %>)</h3>
+    <% if @favorites.present? %>
+      <% @favorites.each do |favorite| %>
         <%= link_to accommodation_path(favorite.accommodation) do %>
           <div class="card-product">
-                  <% if favorite.accommodation.photo.attached? %>
-                      <%= cl_image_tag favorite.accommodation.photo.key, width: 300 %>
-                    <% else %>
-                      <%= cl_image_tag src="https://res.cloudinary.com/dq6gibxhn/image/upload/v1603593033/n7mb1til97o0i9ve1ccvm5pdcplc.jpg", width: 300 %>
-                    <% end  %>
-                  <div class=card-product-infos>
-                    <h3><%= favorite.accommodation.name %> @ <%= favorite.accommodation.location %></h3>
-                    <p>Description: <%= favorite.accommodation.description %></p>
-                    <p>Type: <%= favorite.accommodation.property_type %></p>
-                    <p>Price: $<%= favorite.accommodation.price %> /day</p>
-                    <% if favorite.accommodation.available == true %>
-                      <h3>Status: Available</h3>
-                    <% else %>
-                      <h3>Status: Booked</h3>
-                    <% end  %>
-                  </div>
-            </div>
+            <% if favorite.accommodation.photo.attached? %>
+              <%= cl_image_tag favorite.accommodation.photo.key, width: 300 %>
+            <% else %>
+              <%= cl_image_tag src="https://res.cloudinary.com/dq6gibxhn/image/upload/v1603593033/n7mb1til97o0i9ve1ccvm5pdcplc.jpg", width: 300 %>
+            <% end  %>
+          <div class=card-product-infos>
+            <h3><%= favorite.accommodation.name %> @ <%= favorite.accommodation.location %></h3>
+            <p>Description: <%= favorite.accommodation.description %></p>
+            <p>Type: <%= favorite.accommodation.property_type %></p>
+            <p>Price: $<%= favorite.accommodation.price %> /day</p>
+            <% if favorite.accommodation.available == true %>
+              <h3>Status: Available</h3>
+            <% else %>
+              <h3>Status: Booked</h3>
+            <% end  %>
+          </div>
+        </div>
       <% end %>
-   <% end %>
+    <% end %>
   <% end %>
 </div>
