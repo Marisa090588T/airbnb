@@ -10,7 +10,8 @@
         <%= f.input :property_type, collection: Accommodation::TYPES %>
         <%= f.input :photo, as: :file %>
         <%= f.button :submit, value: 'Edit Accommodation', class: 'btn btn-primary' %>
-        <%= link_to 'cancel', accommodation_path %>
+        <%= link_to 'Cancel', dashboards_path %> |
+        <%= link_to 'Home', accommodations_path %>
       <% end %>
     </div>
   </div>
