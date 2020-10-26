@@ -4,7 +4,6 @@ class Accommodation < ApplicationRecord
   has_one_attached :photo
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_one :booking
   default_scope -> { order(created_at: :desc) }
   validates :name, presence: true, uniqueness: true, length: { minimum: 3 }
   validates :price, presence: true
