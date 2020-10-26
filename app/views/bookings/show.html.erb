@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Your booking <%= @booking.accommodation.name %></h1>
+  <h3>Your booking <%= @booking.accommodation.name %></h3>
   <div class="card-trip">
     <% if @booking.accommodation.photo.attached? %>
       <%= cl_image_tag @booking.accommodation.photo.key, height: 150, width: 200, crop: :fill %>
@@ -8,13 +8,13 @@
     <% end  %>
     <div class="card-trip-infos">
       <div>
-        <h2 class="card-title"><%= @booking.accommodation.name %>@<%= @booking.accommodation.location %></h2>
+        <p class="card-title">Location: <%= @booking.accommodation.location %></p>
         <p class="card-text">Description: <%= @booking.accommodation.description %></p>
         <p class="card-text">Type: <%= @booking.accommodation.property_type %></p>
         <p class="card-text">Start Date: <%= @booking.start_date %></p>
         <p class="card-text">End Date: <%= @booking.end_date %></p>
         <p class="card-text">Status: <%= @booking.status %></p>
-        <h2 id="price">Total Price: $ <%= @booking.total_price %> / <%= (@booking.end_date - @booking.start_date).to_i %>days</h2>
+        <p id="price">Total Price: $ <%= @booking.total_price %> / <%= (@booking.end_date - @booking.start_date).to_i %>days</p>
       </div>
       <% if current_user == @booking.user %>
         <div>

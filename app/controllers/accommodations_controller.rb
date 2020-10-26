@@ -46,7 +46,7 @@ class AccommodationsController < ApplicationController
   def update
     @accommodation = Accommodation.find(params[:id])
     @accommodation.update(accommodation_params)
-    redirect_to dashboards_path
+    redirect_to accommodation_path
   end
 
   def destroy

@@ -9,17 +9,18 @@
           <%= cl_image_tag src="https://res.cloudinary.com/dq6gibxhn/image/upload/v1603593033/n7mb1til97o0i9ve1ccvm5pdcplc.jpg", width: 300 %>
         <% end  %>
         <div class=card-product-infos>
-          <h3><%= accommodation.name %> @ <%= accommodation.location %></h3>
+          <p class="card-title"><%= accommodation.name %> @ <%= accommodation.location %></p>
+          <% if accommodation.available == true %>
+            <p id="price">Status: Available</p>
+          <% else %>
+            <p id="notavailable">Status: Booked</p>
+          <% end  %>
           <p>Description: <%= accommodation.description %></p>
           <p>Type: <%= accommodation.property_type %></p>
           <p>Price: $<%= accommodation.price %> /day</p>
-          <% if accommodation.available == true %>
-            <h3>Status: Available</h3>
-          <% else %>
-            <h3>Status: Booked</h3>
-          <% end  %>
         </div>
       </div>
     <% end %>
   <% end %>
 </div>
+
