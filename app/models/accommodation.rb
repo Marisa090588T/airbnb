@@ -13,6 +13,4 @@ class Accommodation < ApplicationRecord
   def accommodation_comment(accommodation_id)
     Comment.where("accommodation_id = ?", accommodation_id)
   end
-  # geocoded_by :location
-  # after_validation :geocode, if: :location_changed?
 end

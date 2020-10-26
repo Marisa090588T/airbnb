@@ -91,7 +91,7 @@ accommodation4 = Accommodation.create!(
   available: false,
   property_type: "family type",
   price: rand(100),
-  user_id: 1
+  user_id: 2
 )
 
 file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603436961/p2x4jmgnsuhsx8doqt6f.jpg')
@@ -105,7 +105,7 @@ accommodation5 = Accommodation.create!(
   available: true,
   property_type: "single type",
   price: rand(100),
-  user_id: 1
+  user_id: 2
 )
 
 file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603437590/seiva76ulf4wupxvyjmh.jpg')
