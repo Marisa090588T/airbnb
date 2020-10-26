@@ -9,6 +9,7 @@ Bundler.require(*Rails.groups)
 module Airbnb
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
+    config.action_view.embed_authenticity_token_in_remote_forms = true
     config.load_defaults 6.0
     config.assets.initialize_on_precompile = false
 
