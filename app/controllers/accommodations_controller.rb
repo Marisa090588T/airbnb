@@ -44,14 +44,14 @@ class AccommodationsController < ApplicationController
   def update
     @accommodation = Accommodation.find(params[:id])
     @accommodation.update(accommodation_params)
-    redirect_to @accommodation
+    redirect_to dashboards_path
   end
 
   def destroy
     @accommodation = Accommodation.find(params[:id])
     @accommodation.destroy
     respond_to do |format|
-      format.html { redirect_to @accommodation, notice: 'Accommodation was successfully deleted!' }
+      format.html { redirect_to dashboards_path, notice: 'Accommodation was successfully deleted!' }
     end
   end
 
