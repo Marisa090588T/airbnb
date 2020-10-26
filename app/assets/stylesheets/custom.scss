@@ -42,6 +42,7 @@ h1 {
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
+  color: #777;
 }
 
 h2 {
@@ -56,6 +57,10 @@ h2 {
 p {
   font-size: 1.1em;
   line-height: 1.2em;
+}
+
+a {
+  text-decoration: none;
 }
 
 ul {
@@ -109,7 +114,19 @@ input {
 // card
 
 #notavailable {
-  color:yellow;
+  color:lightsalmon;
+}
+
+#mine {
+  color: lightgreen;
+}
+
+#book {
+  color: aqua;
+}
+
+#price {
+  color: lightseagreen;
 }
 
 .card-product {
@@ -205,5 +222,48 @@ input {
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  color: white;
 }
 
+// card
+
+.card-trip {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 60%;
+}
+
+.card-trip > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-trip h2 {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.card-trip p {
+  font-size: 16px;
+  opacity: .7;
+  line-height: 1.5rem;
+}
+
+
+.card-trip .card-trip-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-trip-infos .card-trip-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}

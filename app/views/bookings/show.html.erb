@@ -1,34 +1,30 @@
 <div class="container">
-  <h1>Booking Detail</h1>
-  <div class="row">  
-    <div class="col-md-6 col-12 cards-index">
-      <div class="card card-items-index">
-        <div class="card-description">
-          <div class="card">
-            <h3 class="card-title"><%= @booking.accommodation.name %></h3>
-            <p class="card-text">Description: <%= @booking.accommodation.description %></p>
-            <p class="card-text">Location: <%= @booking.accommodation.location %></p>
-            <p class="card-text">Type: <%= @booking.accommodation.property_type %></p>
-            <p class="card-text">Available: <%= @booking.accommodation.available %></p>
-            <p class="card-text"><strong>Start Date:</strong><%= @booking.start_date %></p>
-            <p class="card-text"><strong>End Date:</strong><%= @booking.end_date %></p>
-            <p class="card-text"><strong>Total Price:</strong><%= @booking.total_price %></p>
-            <p class="card-text"><strong>Status:</strong><%= @booking.status %></p>
+  <h1>Your booking <%= @booking.accommodation.name %></h1>
+<div class="card-trip">
             <% if @booking.accommodation.photo.attached? %>
               <%= cl_image_tag @booking.accommodation.photo.key, height: 150, width: 200, crop: :fill %>
             <% else %>
               <%= cl_image_tag src="https://res.cloudinary.com/dq6gibxhn/image/upload/v1603513918/htzhjlk7bxxqzvdylouw.png", height: 150, width: 200, crop: :fill %>
             <% end  %>
-            <br>
+                      <div class="card-trip-infos">
+            <div>
+            <h2 class="card-title"><%= @booking.accommodation.name %>@<%= @booking.accommodation.location %></h2>
+            <p class="card-text">Description: <%= @booking.accommodation.description %></p>
+            <p class="card-text">Type: <%= @booking.accommodation.property_type %></p>
+            <p class="card-text">Start Date: <%= @booking.start_date %></p>
+            <p class="card-text">End Date: <%= @booking.end_date %></p>
+            <p class="card-text">Status: <%= @booking.status %></p>
+            <h2 id="price">Total Price: $ <%= @booking.total_price %> / <%= (@booking.end_date - @booking.start_date).to_i %>days</h2>
+            </div>
             <% if current_user == @booking.user %>
-              <%= link_to 'edit', edit_booking_path %> |
-              <%= link_to "delete", booking_path(@booking), method: :delete, data: { confirm: "Are you sure?" } %>
+            <div>
+              <%= link_to 'Edit', edit_booking_path, class: 'btn btn-success' %> 
+              <%= link_to "Cancel", booking_path(@booking), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-warning' %>
+            </div>
             <% else %>
-              <%= link_to 'Back', dashboards_path %>
+              <%= link_to 'Back to Dashboard', dashboards_path %>
             <% end %>  
-          </div>
-        </div>
-      </div>
+
     </div>
   </div>
 </div>
