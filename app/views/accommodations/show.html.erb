@@ -12,6 +12,9 @@
             <p class="card-text">Description: <%= @accommodation.description %></p>
             <p class="card-text">Type: <%= @accommodation.property_type %></p>
           <h2 id="price">$<%= @accommodation.price %>/day</h2>
+          <% if current_user != @accommodation.user %>
+          <%= render 'users/favorite_form' %>
+            <% end %>  
       </div>
               <% if current_user == @accommodation.user %>
               <div>

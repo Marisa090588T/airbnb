@@ -1,0 +1,25 @@
+  <div class="container">
+
+      <h3>My Bookings(<%= @bookings.count %>)</h3>
+        <% @bookings.each do |booking| %>
+            <%= link_to booking_path(booking) do %>
+          <div class="card-product">
+                    <% if booking.accommodation.photo.attached? %>
+                      <%= cl_image_tag booking.accommodation.photo.key, width: 300 %>
+                    <% else %>
+                      <%= cl_image_tag src="https://res.cloudinary.com/dq6gibxhn/image/upload/v1603593033/n7mb1til97o0i9ve1ccvm5pdcplc.jpg", width: 300 %>
+                    <% end  %>
+
+                  <div class=card-product-infos>
+                    <h3 class="card-title"><%= booking.accommodation.name %> @ <%= booking.accommodation.location %></h3>
+                    <p class="card-text">Description: <%= booking.accommodation.description %></p>
+                    <p class="card-text">Type: <%= booking.accommodation.property_type %></p>
+                    <p class="card-text">From: <%= booking.start_date %></p>
+                    <p class="card-text">To: <%= booking.start_date %></p>
+                    <h3>Total Price: $ <%= booking.total_price %> / <%= (booking.end_date - booking.start_date).to_i %>days</h3>
+                  </div>
+
+                </div>
+            <% end %>
+        <% end %>
+    </div>

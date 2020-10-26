@@ -3,7 +3,7 @@
   <% if @search_word.present? %>
     <h3>Searched by "<%= @search_word %>"： <%= @accommodations.count %></h3>
   <% else %>
-    <h1>Accommodations</h1>
+    <h3>Accommodations</h3>
     <%= link_to 'Add accommodation', new_accommodation_path, class: 'btn btn-primary' %>
   <% end %>
 <div class="cards">
@@ -27,6 +27,7 @@
               <li id="notavailable">Sorry not available...</li>
             <% end %>
           </ul>
+
       </div>
     <% end %>
   <% end %>
