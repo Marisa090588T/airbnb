@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :bookings
   end
 
+  get :favorites, to: 'favorites#index'
   post   "favorites/:accommodation_id/create"  => "favorites#create"
   delete "favorites/:accommodation_id/destroy" => "favorites#destroy"
 

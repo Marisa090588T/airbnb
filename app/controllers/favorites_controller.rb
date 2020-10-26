@@ -1,4 +1,8 @@
 class FavoritesController < ApplicationController
+  def index
+    @favorites = current_user.favorites
+  end
+
   def create
     @accommodation = Accommodation.find(params[:accommodation_id])
     @user = @accommodation.user
