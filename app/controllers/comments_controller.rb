@@ -5,6 +5,12 @@ class CommentsController < ApplicationController
     @comment = @accommodation.comments.build(user_id: current_user.id, content: params[:comment][:content])
     if !@accommodation.nil? && @comment.save
       flash[:success] = "Your comment is successfully added"
+      if @user != current_user
+        @user.notifications.create(accommodation_id: @accommodation.id, variety: 2,
+                                   from_user_id: current_user.id,
+                                   content: @comment.content) 
+        @user.update_attribute(:notification, true)
+      end
     else
       flash[:danger] = "Should be add some comment"
     end
