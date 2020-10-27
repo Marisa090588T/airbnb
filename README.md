@@ -1,6 +1,6 @@
 # Airbnb test
 ![product_image](https://user-images.githubusercontent.com/66708411/97255716-98836700-1854-11eb-8cd2-216a4017883d.png)
-Heroku deplpyment https://test-airbnb-one.herokuapp.com/
+Heroku deployment https://test-airbnb-one.herokuapp.com/
 
 ## Table of contents
 * [Introduction](#introduction)
@@ -21,7 +21,7 @@ Cloud-based backend service that emulates functionality similar to 'airbnb' book
 * Ruby on rails 6.0.3
 * Ruby 2.6.6
 * PostgreSQL
-* Cloudinaly
+* Cloudinary
 
 ## Setup
 Describe how to install / setup your local environement / add link to demo version.
@@ -31,11 +31,11 @@ Describe how to install / setup your local environement / add link to demo versi
 ![trable_design](https://user-images.githubusercontent.com/66708411/97255639-67a33200-1854-11eb-869f-0c0ceb0d54b6.png)
 
 ## functions
-> As render
+> As renter
 * Post accommodation
 * Edit accommodation
 * Delete accommodation
-* Get notification when new comment or favorit is added
+* Get notification when new comment or favorite is added
 
 > As borrower
 * Search accommodation (Ransack）
@@ -44,7 +44,7 @@ Describe how to install / setup your local environement / add link to demo versi
 * Delete booking
 * Add accommodation as 'favourite'
 
-> As both render and borrower
+> As both renter and borrower
 * Signup, Login, Logout,
 * Post comment on accommodation show page
 
@@ -62,7 +62,7 @@ Describe how to install / setup your local environement / add link to demo versi
 
 > optional functions (except requirment)
 * Add as Favourite ⚪︎
-* Notification when accommodation added favourite or got message ⚪︎
+* Notification when accommodation added favorite or got message ⚪︎
 
 ## Things I would like to do
 * Create the map function for user can see the location on the map.
