@@ -21,6 +21,7 @@ Cloud-based backend service that emulates functionality similar to 'airbnb' book
 * Ruby on rails 6.0.3
 * Ruby 2.6.6
 * PostgreSQL
+* Cloudinaly
 
 ## Setup
 Describe how to install / setup your local environement / add link to demo version.
