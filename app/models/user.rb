@@ -7,8 +7,8 @@ class User < ApplicationRecord
   validates :user_name, uniqueness: true
   has_many :accommodations, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  has_many :notifications, dependent: :destroy 
-  
+  has_many :notifications, dependent: :destroy
+
   def forget
     update_attribute(:remember_digest, nil)
   end
