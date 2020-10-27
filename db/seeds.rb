@@ -88,7 +88,7 @@ accommodation4 = Accommodation.create!(
   name: "accommodation_4",
   description: "this is description",
   location: "location 444444",
-  available: true,
+  available: false,
   property_type: "family type",
   price: rand(100),
   user_id: 2
