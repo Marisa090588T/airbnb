@@ -1,4 +1,4 @@
-# Simple Airbnb
+# Airbnb test
 ![product_image](https://user-images.githubusercontent.com/66708411/97255716-98836700-1854-11eb-8cd2-216a4017883d.png)
 Heroku deplpyment https://test-airbnb-one.herokuapp.com/
 
@@ -27,7 +27,7 @@ Cloud-based backend service that emulates functionality similar to 'airbnb' book
 Describe how to install / setup your local environement / add link to demo version.
 
 ## Features
-### 7 models and controller
+### 7 Models and Controllers
 ![trable_design](https://user-images.githubusercontent.com/66708411/97255639-67a33200-1854-11eb-869f-0c0ceb0d54b6.png)
 
 ## functions
@@ -64,7 +64,7 @@ Describe how to install / setup your local environement / add link to demo versi
 * Add as Favourite ⚪︎
 * Notification when accommodation added favourite or got message ⚪︎
 
-### Things I would like to do
+## Things I would like to do
 * Create the map function for user can see the location on the map.
 * Improve frontend to Vue.js 
 * Add test code.
