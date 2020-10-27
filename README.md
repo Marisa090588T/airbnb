@@ -1,5 +1,5 @@
 # Airbnb test
-![product_image](https://user-images.githubusercontent.com/66708411/97255716-98836700-1854-11eb-8cd2-216a4017883d.png)
+![product_image](https://user-images.githubusercontent.com/66708411/97298550-eae57780-1896-11eb-8b6e-45e0e91a8f4b.png)
 Heroku deployment https://test-airbnb-one.herokuapp.com/
 * email: user@user.com
 * password: password
