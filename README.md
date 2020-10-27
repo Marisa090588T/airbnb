@@ -28,19 +28,18 @@ Cloud-based backend service that emulates functionality similar to 'airbnb' book
 
 ## Setup
 * Clone repository
- ```$ git clone https://github.com/Marisa090588T/airbnb```
+ `$ git clone https://github.com/Marisa090588T/airbnb`
 * Install ruby ver 2.6.6
-`$ rbenv install 2.6.6` (If you don't use this version)
-`$ bundle install`
+ `$ rbenv install 2.6.6` `$ bundle install` (If you don't use this version)
 * Install Yarn
-`$ brew install yarn`
+ `$ brew install yarn`
 * Set up database
-`$ bundle e rails db:setup`
+ `$ bundle e rails db:setup`
 * Install PostgreSQL via Homebrew
-`$ brew install postgresql`
-`$ brew services start postgresql`
-* Run the server (http://localhost:3000)
-`$ bundle e rails s`
+ `$ brew install postgresql`
+ `$ brew services start postgresql`
+* Run the server 
+ `$ bundle e rails s` (http://localhost:3000)
 
 ## Features
 ### 7 Models and Controllers
