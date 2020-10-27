@@ -1,0 +1,14 @@
+<% user = User.find(notification.from_user_id) %>
+<% accommodation = Accommodation.find(notification.accommodation_id) %>
+<li id="notification-<%= notification.id %>">
+  <div>
+    <% if notification.variety == 1 %>
+      <p><%= notification.created_at.strftime("%Y/%m/%d(%a) %H:%M") %></p>
+      <p class="notification-message">Your <%= link_to accommodation.name, accommodation_path(accommodation) %> was added to favorite by <%= user.user_name %></p>
+    <% elsif notification.variety == 2 %>
+      <p><%= notification.created_at.strftime("%Y/%m/%d(%a) %H:%M") %></p>
+      <p class="notification-message">Your <%= link_to accommodation.name, accommodation_path(accommodation) %> got comment by <%= user.user_name %>
+      「<%= notification.content %>」</p>
+    <% end %>
+  </div>
+</li>

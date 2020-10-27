@@ -5,7 +5,12 @@
      <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
         <li><i class="fas fa-home"><%= link_to 'Accommodation', accommodations_path %></i></li>
-        <li><i class="fas fa-bell"><%= link_to 'Notification', accommodations_path %></i></li>
+          <% if current_user.notification == true %>
+            <li class="new_notification header-link">
+          <% else %>
+            <li class="no_notification header-link">
+          <% end %>
+          <i class="fas fa-bell"><%= link_to 'Notification', notifications_path %></i></li>
         <li><i class="fas fa-heart"><%= link_to 'Favorite', favorites_path %></i></li>
         <li><i class="fas fa-list-alt"><%= link_to 'Booking', bookings_path %></i></li>
         <li><i class="fas fa-user-cog"><%= link_to "Manege", dashboards_path(@user) %></i></li>

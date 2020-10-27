@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :notifications, only: :index
+
   devise_for :users do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
@@ -16,6 +18,5 @@ Rails.application.routes.draw do
 
   resources :comments, only: [:create, :destroy]
 
-  # resources :bookings
   resources :bookings
 end
