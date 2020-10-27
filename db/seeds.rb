@@ -130,7 +130,7 @@ accommodation7 = Accommodation.create!(
   name: "accommodation_7",
   description: "this is description",
   location: "location 77777",
-  available: true,
+  available: false,
   property_type: "family type",
   price: rand(100),
   user_id: 2
@@ -158,7 +158,7 @@ accommodation9 = Accommodation.create!(
   name: "accommodation_9",
   description: "this is description",
   location: "location 99999",
-  available: true,
+  available: false,
   property_type: "friend type",
   price: rand(100),
   user_id: 2

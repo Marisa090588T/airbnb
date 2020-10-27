@@ -19,7 +19,8 @@
               <li>Price: $<%= accommodation.price %>/day</li>
               <% if current_user == accommodation.user %>
                 <li id="mine">It's your accommodation</li>
-              <% elsif accommodation.available == true %>
+                <!-- below 'elsif' related to app/controllers/accommodations_controller.rb line 56-58 -->
+              <% elsif accommodation.available == true %> 
                 <li id="book">You can book!</li>
               <% else %>
                 <li id="notavailable">Sorry not available...</li>

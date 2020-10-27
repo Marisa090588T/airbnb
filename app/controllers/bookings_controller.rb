@@ -50,6 +50,12 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    # Below line 56-58 are seems not work.
+    # What I want to do is: after booking destroy, accommodation.available is chanded to true.
+    # As other user can book.
+    # @accommodation = Accommodation.find(params[:accommodation_id])
+    # @accommodation.available = true
+    # @accommodation.save
     @booking.destroy
     redirect_to bookings_path, notice: 'Booking was successfully canceled.'
   end
