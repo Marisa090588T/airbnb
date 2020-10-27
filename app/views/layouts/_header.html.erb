@@ -1,17 +1,18 @@
 <header class="navbar navbar-fixed-top">
- <div class="container">
+ <div>
    <nav>
     <%= render 'layouts/search' if user_signed_in? %>
      <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
-        <li><%= link_to 'Accommodations', accommodations_path %></li>
-         <li><%= link_to 'Favorite', favorites_path %></li>
-        <li><%= link_to 'Booking', bookings_path %></li>
-        <li><%= link_to "Manege", dashboards_path(@user) %></li>
-        <li><%= link_to "Log out", destroy_user_session_path, method: :get %></li> 
+        <li><i class="fas fa-home"><%= link_to 'Accommodation', accommodations_path %></i></li>
+        <li><i class="fas fa-bell"><%= link_to 'Notification', accommodations_path %></i></li>
+        <li><i class="fas fa-heart"><%= link_to 'Favorite', favorites_path %></i></li>
+        <li><i class="fas fa-list-alt"><%= link_to 'Booking', bookings_path %></i></li>
+        <li><i class="fas fa-user-cog"><%= link_to "Manege", dashboards_path(@user) %></i></li>
+        <li><i class="fas fa-sign-out-alt"><%= link_to "Log out", destroy_user_session_path, method: :get %></i></li> 
         <% else %>
-          <li><%= link_to 'Sign up', new_user_registration_path %></li>
-          <li><%= link_to 'Log in', new_user_session_path %></li>
+          <li><i class="fas fa-user-plus"><%= link_to 'Sign up', new_user_registration_path %></i></li>
+          <li><i class="fas fa-sign-in-alt"><%= link_to 'Log in', new_user_session_path %></i></li>
         <% end %>
      </ul>
    </nav>
