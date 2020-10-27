@@ -4,4 +4,3 @@ class NotificationsController < ApplicationController
     current_user.update_attribute(:notification, false)
   end
 end
-
