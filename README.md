@@ -1,6 +1,9 @@
 # Airbnb test
 ![product_image](https://user-images.githubusercontent.com/66708411/97255716-98836700-1854-11eb-8cd2-216a4017883d.png)
 Heroku deployment https://test-airbnb-one.herokuapp.com/
+* email: user@user.com
+* password: password
+
 
 ## Table of contents
 * [Introduction](#introduction)
@@ -24,7 +27,20 @@ Cloud-based backend service that emulates functionality similar to 'airbnb' book
 * Cloudinary
 
 ## Setup
-Describe how to install / setup your local environement / add link to demo version.
+* Clone repository
+'$ git clone https://github.com/Marisa090588T/airbnb'
+* Install ruby ver 2.6.6
+'$ rbenv install 2.6.6'(If you don't use this version)
+'$ bundle install'
+* Install Yarn
+'$ brew install yarn'
+* Set up database
+'$ bundle e rails db:setup'
+* Install PostgreSQL via Homebrew
+'$ brew install postgresql'
+'$ brew services start postgresql
+* Run the server (http://localhost:3000)
+'$ bundle e rails s'
 
 ## Features
 ### 7 Models and Controllers
