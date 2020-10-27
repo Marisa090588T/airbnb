@@ -8,7 +8,7 @@ Heroku deplpyment https://test-airbnb-one.herokuapp.com/
 * [Technologies](#technologies)
 * [Setup](#setup)
 * [Features](#features)
-* [Requirements Achieved](#requirmentsacheved)
+* [Requirements Achieved](#requirment)
 * [Inspiration](#inspiration)
 
 ## Introduction
