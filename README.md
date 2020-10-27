@@ -28,7 +28,7 @@ Cloud-based backend service that emulates functionality similar to 'airbnb' book
 
 ## Setup
 * Clone repository
-`$ git clone https://github.com/Marisa090588T/airbnb`
+```$ git clone https://github.com/Marisa090588T/airbnb```
 * Install ruby ver 2.6.6
 `$ rbenv install 2.6.6` (If you don't use this version)
 `$ bundle install`
