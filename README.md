@@ -82,6 +82,7 @@ Cloud-based backend service that emulates functionality similar to 'airbnb' book
 ## Things I would like to do
 * Create the map function for user can see the location on the map.
 * Improve frontend to Vue.js 
+* Make it as Restful API.
 * Add test code.
 * After finishing I realized 'notification' controller was not efficient enough(notifications are not disappear from index page after user saw it.) I would go back and fix it.
 
