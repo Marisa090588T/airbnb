@@ -52,7 +52,7 @@ accommodation1 = Accommodation.create!(
   user_id: 1
 )
 
-file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603436961/p2x4jmgnsuhsx8doqt6f.jpg')
+file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603843635/8wha00enorrdh9suh8p7ztvt18td.jpg')
 accommodation1.photo.attach(io: file, filename: 'nes.jpg', content_type: 'image/jpg')
 accommodation1.save!
 
@@ -66,7 +66,7 @@ accommodation2 = Accommodation.create!(
   user_id: 1
 )
 
-file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603437590/seiva76ulf4wupxvyjmh.jpg')
+file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603843635/rqf53dcs94g9est0ebbq8pi0vhdp.jpg')
 accommodation2.photo.attach(io: file, filename: 'nes.jpg', content_type: 'image/jpg')
 accommodation2.save!
 
@@ -80,7 +80,7 @@ accommodation3 = Accommodation.create!(
   user_id: 1
 )
 
-file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603437650/zurgmnwiczuqqyc4oq7g.jpg')
+file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603843636/0ix8qobg9az4uc4pdyh4xppv6we3.jpg')
 accommodation3.photo.attach(io: file, filename: 'nes.jpg', content_type: 'image/jpg')
 accommodation3.save!
 
@@ -94,7 +94,7 @@ accommodation4 = Accommodation.create!(
   user_id: 2
 )
 
-file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603436961/p2x4jmgnsuhsx8doqt6f.jpg')
+file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603843638/n1z004f9ve8a3mwx2kp2s02d3t6j.jpg')
 accommodation4.photo.attach(io: file, filename: 'nes.jpg', content_type: 'image/jpg')
 accommodation4.save!
 
@@ -108,7 +108,7 @@ accommodation5 = Accommodation.create!(
   user_id: 2
 )
 
-file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603437590/seiva76ulf4wupxvyjmh.jpg')
+file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603843638/kpse6c1rclx3cq6yz7brdmtdr2g2.jpg')
 accommodation5.photo.attach(io: file, filename: 'nes.jpg', content_type: 'image/jpg')
 accommodation5.save!
 
@@ -122,7 +122,7 @@ accommodation6 = Accommodation.create!(
   user_id: 1
 )
 
-file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603437650/zurgmnwiczuqqyc4oq7g.jpg')
+file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603843638/kpse6c1rclx3cq6yz7brdmtdr2g2.jpg')
 accommodation6.photo.attach(io: file, filename: 'nes.jpg', content_type: 'image/jpg')
 accommodation6.save!
 
@@ -136,7 +136,7 @@ accommodation7 = Accommodation.create!(
   user_id: 2
 )
 
-file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603624299/jjtgyj4dx4sjmonrfm5ptklmgcgc.jpg')
+file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603843635/8wha00enorrdh9suh8p7ztvt18td.jpg')
 accommodation7.photo.attach(io: file, filename: 'nes.jpg', content_type: 'image/jpg')
 accommodation7.save!
 
@@ -150,7 +150,8 @@ accommodation8 = Accommodation.create!(
   user_id: 2
 )
 
-file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603626260/fppq7toffpl2pntxfmgt.jpg')
+
+file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603843635/rqf53dcs94g9est0ebbq8pi0vhdp.jpg')
 accommodation8.photo.attach(io: file, filename: 'nes.jpg', content_type: 'image/jpg')
 accommodation8.save!
 
@@ -164,7 +165,7 @@ accommodation9 = Accommodation.create!(
   user_id: 2
 )
 
-file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603626291/buxhswevy7xbhwlswqgb.jpg')
+file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603843636/0ix8qobg9az4uc4pdyh4xppv6we3.jpg')
 accommodation9.photo.attach(io: file, filename: 'nes.jpg', content_type: 'image/jpg')
 accommodation9.save!
 
@@ -178,7 +179,7 @@ accommodation10 = Accommodation.create!(
   user_id: 2
 )
 
-file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603624299/jjtgyj4dx4sjmonrfm5ptklmgcgc.jpg')
+file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603843638/n1z004f9ve8a3mwx2kp2s02d3t6j.jpg')
 accommodation10.photo.attach(io: file, filename: 'nes.jpg', content_type: 'image/jpg')
 accommodation10.save!
 
@@ -192,7 +193,7 @@ accommodation11 = Accommodation.create!(
   user_id: 2
 )
 
-file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603626260/fppq7toffpl2pntxfmgt.jpg')
+file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603843638/kpse6c1rclx3cq6yz7brdmtdr2g2.jpg')
 accommodation11.photo.attach(io: file, filename: 'nes.jpg', content_type: 'image/jpg')
 accommodation11.save!
 
@@ -206,7 +207,7 @@ accommodation12 = Accommodation.create!(
   user_id: 2
 )
 
-file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603626291/buxhswevy7xbhwlswqgb.jpg')
+file = URI.open('https://res.cloudinary.com/dq6gibxhn/image/upload/v1603843638/kpse6c1rclx3cq6yz7brdmtdr2g2.jpg')
 accommodation12.photo.attach(io: file, filename: 'nes.jpg', content_type: 'image/jpg')
 accommodation12.save!
 
